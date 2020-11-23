@@ -2,6 +2,10 @@
 #define BOOM_AVL_H
 #include "Course.h"
 
+/**
+ * Description:
+ *
+ */
 class Avl {
 private:
     int key;//ID
