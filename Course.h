@@ -17,17 +17,19 @@ public:
 
     /**
      * Description:
-     *
+     *      Creates a Course
+     *      todo:    This doesnt initialize pointers!
      * may throw this exceptions:
-     *
+     *      std::bad_alloc() - in case of an allocation error.
      *
      */
     Course(int num_classes, int course_id);
     /**
      * Description:
-     *
+     *      removes a Course
+     *      todo: this doesnt Destroy Nodes.
      * may throw this exceptions:
-     *
+     *      None!
      *
      */
     ~Course();
