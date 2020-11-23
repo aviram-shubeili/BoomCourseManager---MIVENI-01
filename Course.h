@@ -11,6 +11,7 @@
  */
 class Course {
 private:
+    int num_classes;
     std::shared_ptr<Node>* classes;
     std::shared_ptr<Node>* num_views;
 public:
