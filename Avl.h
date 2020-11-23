@@ -1,15 +1,16 @@
-#ifndef Avl
-#define Avl
+#ifndef BOOM_AVL_H
+#define BOOM_AVL_H
 #include "Course.h"
 
-class Avl
-    private:
+class Avl {
+private:
     int key;//ID
     Course data;
-    Avl_node* right;
-    Avl_node* left;
-    public:
+    Avl* right;
+    Avl* left;
+public:
 
-}
+};
 
-#endif
+
+#endif //BOOM_AVL_H

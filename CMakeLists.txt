@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.16)
 project(Boom)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -11,4 +12,4 @@ set(MTM_FLAGS_RELEASE "${MTM_FLAGS_DEBUG} -DNDEBUG")
 set(CMAKE_C_FLAGS ${MTM_FLAGS_DEBUG})
 
 
-add_executable(Boom main.cpp)
+add_executable(Boom main.cpp CoursesManager.cpp CoursesManager.h Avl.cpp Avl.h Course.cpp Course.h Node.cpp Node.h)
