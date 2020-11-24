@@ -2,7 +2,7 @@
 #define BOOM_NODE_H
 #include <memory>
 #include "library.h"
-
+#define CLASS_NODE -1
 /**
  * Description:
  *
@@ -11,13 +11,13 @@
 class Node {
 
 private:
-    int views;//not view = -1
+    int views;//not view = CLASS_NODE
     int course_id;
     int class_id;
 
-    std::shared_ptr<Node> classes;
-    std::shared_ptr<Node> next;
-    std::shared_ptr<Node> prev;
+    Node* classes;
+    Node* next;
+    Node* prev;
 
 public:
 
@@ -28,7 +28,7 @@ public:
      *
      *
      */
-    Node(int views);
+    Node(int new_views);
     /**
      * Description:
      *
@@ -36,7 +36,7 @@ public:
      *
      *
      */
-    Node(int course_id, int class_id);
+    Node(int new_course_id, int new_class_id);
     /**
      * Description:
      *

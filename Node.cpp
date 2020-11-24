@@ -1,15 +1,20 @@
 #include "Node.h"
 
-Node::Node(int views) {
+Node::Node(int new_views) : views(new_views){}
 
-}
+Node::Node(int new_course_id, int new_class_id) : 
+views(CLASS_NODE), course_id(new_course_id), class_id(new_class_id){}
 
-Node::Node(int course_id, int class_id) {
-
-}
-
-Node::~Node() {
-
+Node::~Node() 
+{
+    if(this->next != NULL)
+    {
+        next->setPrev(this->prev);    
+    }
+    else if(this->views == CLASS_NODE) // if it is the last class node
+    {
+        delete(this->prev);//Deubg : check if need to delete? or ok with shared ptr
+    }
 }
 
 int Node::getViews() {
