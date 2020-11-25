@@ -6,11 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp
-List.h
-/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
-
-/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp
 Node.h
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
 

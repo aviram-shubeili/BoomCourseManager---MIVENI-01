@@ -29,14 +29,14 @@ std::shared_ptr<Node> Node::getRight() {
     return this->right;
 }
 
-void Node::setNext(Node &new_next) {
+void Node::setNext(std::shared_ptr<Node> new_next) {
 
 }
 
-void Node::setPrev(Node &new_prev) {
+void Node::setPrev(std::shared_ptr<Node> new_prev) {
 
 }
 
-void Node::setclass(Node &new_class) {
+void Node::setRight(std::shared_ptr<Node> new_right) {
 
 }

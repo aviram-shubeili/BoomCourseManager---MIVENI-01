@@ -102,7 +102,7 @@ public:
      *
      *
      */
-    void setNext(Node& new_next);
+    void setNext(std::shared_ptr<Node> new_next);
     /**
      * Description:
      *
@@ -110,7 +110,7 @@ public:
      *
      *
      */
-    void setPrev(Node& new_prev);
+    void setPrev(std::shared_ptr<Node> new_prev);
     /**
      * Description:
      *
@@ -118,7 +118,7 @@ public:
      *
      *
      */
-    void setclass(Node& new_class);
+    void setRight(std::shared_ptr<Node> new_right);
 
 };
 
