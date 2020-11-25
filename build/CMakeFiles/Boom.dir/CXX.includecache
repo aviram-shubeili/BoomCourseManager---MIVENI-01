@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp
+List.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
+
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
+Node.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
+
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
+memory
+-
+library.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/library.h
+
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/library.h
+

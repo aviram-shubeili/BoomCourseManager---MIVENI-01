@@ -11,6 +11,7 @@ Course::~Course() {
     delete[] classes;
 }
 
+
 std::shared_ptr<Node> Course::getClass(int class_id) {
     if(class_id < 0 or class_id >= num_classes) {
         throw InvalidInput();

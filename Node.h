@@ -2,7 +2,7 @@
 #define BOOM_NODE_H
 #include <memory>
 #include "library.h"
-
+#define LECTURE_NODE -1
 /**
  * Description:
  *
@@ -11,11 +11,11 @@
 class Node {
 
 private:
-    int views;//not view = -1
+    int views;//not view = LECTURE_NODE
     int course_id;
     int class_id;
 
-    std::shared_ptr<Node> classes;
+    std::shared_ptr<Node> right;
     std::shared_ptr<Node> next;
     std::shared_ptr<Node> prev;
 
@@ -28,7 +28,7 @@ public:
      *
      *
      */
-    Node(int views);
+    Node(int new_views);
     /**
      * Description:
      *
@@ -36,7 +36,7 @@ public:
      *
      *
      */
-    Node(int course_id, int class_id);
+    Node(int new_course_id, int new_class_id);
     /**
      * Description:
      *
@@ -70,16 +70,6 @@ public:
      *
      */
     int getCalssId();
-
-    /**
-     * Description:
-     *
-     * may throw this exceptions:
-     *
-     *
-     */
-    void addViews(int views);
-
     /**
      * Description:
      *
@@ -103,7 +93,7 @@ public:
      *
      *
      */
-    std::shared_ptr<Node> getClasses();
+    std::shared_ptr<Node> getRight();
 
     /**
      * Description:
