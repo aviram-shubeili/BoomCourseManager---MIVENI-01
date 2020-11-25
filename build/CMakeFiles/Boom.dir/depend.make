@@ -15,6 +15,11 @@ CMakeFiles/Boom.dir/Course.cpp.o: ../library.h
 CMakeFiles/Boom.dir/CoursesManager.cpp.o: ../CoursesManager.cpp
 CMakeFiles/Boom.dir/CoursesManager.cpp.o: ../CoursesManager.h
 
+CMakeFiles/Boom.dir/List.cpp.o: ../List.cpp
+CMakeFiles/Boom.dir/List.cpp.o: ../List.h
+CMakeFiles/Boom.dir/List.cpp.o: ../Node.h
+CMakeFiles/Boom.dir/List.cpp.o: ../library.h
+
 CMakeFiles/Boom.dir/Node.cpp.o: ../Node.cpp
 CMakeFiles/Boom.dir/Node.cpp.o: ../Node.h
 CMakeFiles/Boom.dir/Node.cpp.o: ../library.h

@@ -71,4 +71,5 @@ public:
      */
     void getMostViewd(int numOfClasses, int* courses, int* classes);
 
+};
 #endif

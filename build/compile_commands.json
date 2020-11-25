@@ -23,5 +23,10 @@
   "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
   "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/Node.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp",
   "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp"
+},
+{
+  "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
+  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/List.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp",
+  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp"
 }
 ]

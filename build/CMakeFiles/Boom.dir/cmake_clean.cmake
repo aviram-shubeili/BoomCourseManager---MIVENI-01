@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Boom.dir/Avl.cpp.o"
   "CMakeFiles/Boom.dir/Course.cpp.o"
   "CMakeFiles/Boom.dir/CoursesManager.cpp.o"
+  "CMakeFiles/Boom.dir/List.cpp.o"
   "CMakeFiles/Boom.dir/Node.cpp.o"
   "CMakeFiles/Boom.dir/main.cpp.o"
 )

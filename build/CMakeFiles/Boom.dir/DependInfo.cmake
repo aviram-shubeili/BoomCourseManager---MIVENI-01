@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.cpp" "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/Boom.dir/Avl.cpp.o"
   "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Course.cpp" "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/Boom.dir/Course.cpp.o"
   "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/CoursesManager.cpp" "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/Boom.dir/CoursesManager.cpp.o"
+  "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp" "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/Boom.dir/List.cpp.o"
   "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp" "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/Boom.dir/Node.cpp.o"
   "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/main.cpp" "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/Boom.dir/main.cpp.o"
   )

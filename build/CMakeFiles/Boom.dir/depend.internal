@@ -15,6 +15,11 @@ CMakeFiles/Boom.dir/Course.cpp.o
 CMakeFiles/Boom.dir/CoursesManager.cpp.o
  /home/uri.yakar/Mivni/Hw1/BoomCourseManager/CoursesManager.cpp
  /home/uri.yakar/Mivni/Hw1/BoomCourseManager/CoursesManager.h
+CMakeFiles/Boom.dir/List.cpp.o
+ /home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp
+ /home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
+ /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
+ /home/uri.yakar/Mivni/Hw1/BoomCourseManager/library.h
 CMakeFiles/Boom.dir/Node.cpp.o
  /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp
  /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
