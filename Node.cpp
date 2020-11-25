@@ -30,13 +30,13 @@ std::shared_ptr<Node> Node::getRight() {
 }
 
 void Node::setNext(std::shared_ptr<Node> new_next) {
-
+next = new_next;
 }
 
 void Node::setPrev(std::shared_ptr<Node> new_prev) {
-
+prev = new_prev;
 }
 
 void Node::setRight(std::shared_ptr<Node> new_right) {
-
+right = new_right;
 }

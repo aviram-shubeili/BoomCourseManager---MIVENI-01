@@ -11,8 +11,32 @@
  */
 class List {
 private:
-    std::shared_ptr<Node> head;
-    std::shared_ptr<Node> max;
+    std::shared_ptr<Node> head;//points to 0 views node
+    std::shared_ptr<Node> max;//points to the max views node
+    /**
+     * Description: will disconnect the lecture node from the list
+     * note: will not remove the views node even if it is the last node 
+     * may throw this exceptions:
+     *
+     *
+     */
+    void disconnectLecture(std::shared_ptr<Node> next, std::shared_ptr<Node> prev);
+    /**
+     * Description: will remove views node if need to
+     * gets the prev to the removed lecture node
+     * may throw this exceptions:
+     *
+     *
+     */
+    void removeViews(std::shared_ptr<Node> next, std::shared_ptr<Node> prev);
+            /**
+     * Description: will add lacture node to given views node
+     *
+     * may throw this exceptions:
+     *
+     *
+     */
+    std::shared_ptr<Node> addLectureToViews(std::shared_ptr<Node> node_views_ptr, std::shared_ptr<Node> node_lecture_ptr);
 public:
     /**
      * Description:
@@ -32,14 +56,14 @@ public:
     ~List();
     /**
      * Description: will remove the lecture node from the list and will reconnect / remove needed nodes
-     * will return the right pointer (can point null)
+     * 
      * may throw this exceptions:
      *
      *
      */
-    std::shared_ptr<Node> removeLecture(std::shared_ptr<Node> node_lecture_ptr);
+    void removeLecture(std::shared_ptr<Node> node_lecture_ptr);
     /**
-     * Description:
+     * Description:will start new lecture in 0
      *
      * may throw this exceptions:
      *
