@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
+  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/main.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/main.cpp",
+  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/main.cpp"
+},
+{
+  "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
+  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/CoursesManager.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/CoursesManager.cpp",
+  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/CoursesManager.cpp"
+},
+{
+  "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
+  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/Avl.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.cpp",
+  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.cpp"
+},
+{
+  "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
+  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/Course.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Course.cpp",
+  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Course.cpp"
+},
+{
+  "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
+  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/Node.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp",
+  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp"
+}
+]

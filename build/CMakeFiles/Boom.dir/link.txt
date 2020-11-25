@@ -1,0 +1,1 @@
+/usr/local/bin/g++  -g   CMakeFiles/Boom.dir/main.cpp.o CMakeFiles/Boom.dir/CoursesManager.cpp.o CMakeFiles/Boom.dir/Avl.cpp.o CMakeFiles/Boom.dir/Course.cpp.o CMakeFiles/Boom.dir/Node.cpp.o  -o Boom 

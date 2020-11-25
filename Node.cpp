@@ -9,7 +9,7 @@ Node::~Node()
 {
     if(this->next != NULL)
     {
-        next->setPrev(this->prev);    
+        next->setPrev(*(this->prev));    
     }
     else if(this->views == CLASS_NODE) // if it is the last class node
     {

@@ -5,7 +5,7 @@
 Course::Course(int num_classes, int course_id) {
 }
 
-Course::~Course() {
+Course::~Course() {}
 
 
 std::shared_ptr<Node> Course::getClass(int class_id) {

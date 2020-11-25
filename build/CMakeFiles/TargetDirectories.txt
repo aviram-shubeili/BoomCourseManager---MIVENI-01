@@ -1,0 +1,3 @@
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/edit_cache.dir
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/rebuild_cache.dir
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/Boom.dir
