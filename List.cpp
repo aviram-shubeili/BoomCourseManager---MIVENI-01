@@ -20,6 +20,9 @@ std::shared_ptr<Node> List::removeLecture(std::shared_ptr<Node> node_lecture_ptr
     }
     else if(node_lecture_ptr->getPrev()->getViews() != LECTURE_NODE)//if the current node is the last one
     {
-
+            if(node_lecture_ptr->getPrev()->getViews() != 0)
+            {
+                
+            }
     }
 }
