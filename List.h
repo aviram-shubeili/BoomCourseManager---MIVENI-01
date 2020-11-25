@@ -12,7 +12,7 @@
 class List {
 private:
     std::shared_ptr<Node> head;
-    std::shared_ptr<Node> tails;
+    std::shared_ptr<Node> max;
 public:
     /**
      * Description:
