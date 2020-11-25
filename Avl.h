@@ -6,13 +6,27 @@
  * Description:
  *
  */
+
+
+
 class Avl {
+    struct Avl_n {
+        int key;
+        Course data;
+        struct Avl_n* right;
+        struct Avl_n* left;
+        int height;
+    };
 private:
-    int key;//ID
-    Course data;
-    Avl* right;
-    Avl* left;
+
+int height();
+
 public:
+    Avl_n* root;
+
+void insert(int key, Course data);
+void remove(int key);
+std::shared_ptr<Course> find(int key);
 
 };
 

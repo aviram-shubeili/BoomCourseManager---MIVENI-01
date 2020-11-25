@@ -13,7 +13,6 @@ class Course {
 private:
     int num_classes;
     std::shared_ptr<Node>* classes;
-    std::shared_ptr<Node>* num_views;
 public:
 
     /**
@@ -37,28 +36,28 @@ public:
 
     /**
      * Description:
-     *
+     *      return a shared pointer to the node of class_id
      * may throw this exceptions:
-     *
+     *      InvalidInput - if class_id is not valid
      *
      */
     std::shared_ptr<Node> getClass(int class_id);
     /**
      * Description:
-     *
+     *  // TODO: IS THIS THE RIGHT RETURN VALUE? SHOULDNT WE RETURN INT?
      * may throw this exceptions:
-     *
+     *      InvalidInput - if class_id is not valid
      *
      */
     std::shared_ptr<Node> getViews(int class_id);
     /**
      * Description:
-     *
+     * TODO: transfer the class node to the new updated list of views
      * may throw this exceptions:
-     *
-     *
+     *      InvalidInput - if class_id is not valid or if time is not positive
+     *      TODO: allocation problem?
      */
-    StatusType addViews(int class_id);
+    StatusType addViews(int class_id, int time);
 
 };
 
