@@ -31,13 +31,13 @@ public:
      */
     ~List();
     /**
-     * Description:
-     *
+     * Description: will remove the lecture node from the list and will reconnect / remove needed nodes
+     * will return the right pointer (can point null)
      * may throw this exceptions:
      *
      *
      */
-    void removeLecture(std::shared_ptr<Node> node_lecture_ptr);
+    std::shared_ptr<Node> removeLecture(std::shared_ptr<Node> node_lecture_ptr);
     /**
      * Description:
      *
