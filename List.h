@@ -1,7 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 #include "Node.h"
-
+#include <assert.h>
 /**
  * Description:
  *
@@ -88,7 +88,7 @@ public:
     int getLectureViews(std::shared_ptr<Node> node_lecture_ptr);
     /**
      * Description:
-     *
+     *note: will not throw errors! you need to check if legal before
      * may throw this exceptions:
      *
      *

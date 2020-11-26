@@ -6,27 +6,27 @@ Node::Node(int new_course_id, int new_class_id) :
 views(LECTURE_NODE), course_id(new_course_id), class_id(new_class_id){}
 
 int Node::getViews() {
-    return 0;
+    return views;
 }
 
 int Node::getCourseId() {
-    return 0;
+    return course_id;
 }
 
 int Node::getCalssId() {
-    return 0;
+    return class_id;
 }
 
 std::shared_ptr<Node> Node::getNext() {
-    return std::shared_ptr<Node>();
+    return next;
 }
 
 std::shared_ptr<Node> Node::getPrev() {
-    return std::shared_ptr<Node>();
+    return prev;
 }
 
 std::shared_ptr<Node> Node::getRight() {
-    return this->right;
+    return right;
 }
 
 void Node::setNext(std::shared_ptr<Node> new_next) {

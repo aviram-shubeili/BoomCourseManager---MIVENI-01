@@ -1,4 +1,5 @@
 #include "List.h"
+//NOTES: funtions will not check if they are getting legal input!
 
 List::List()
 {
@@ -64,7 +65,7 @@ std::shared_ptr<Node> List::addLectureToViews(std::shared_ptr<Node> node_views_p
     node_lecture_ptr->setRight(node_views_ptr);
 
     first->setPrev(node_lecture_ptr);
-    head->setRight(node_lecture_ptr);
+    node_views_ptr->setRight(node_lecture_ptr);
 }
 
 
@@ -102,18 +103,52 @@ std::shared_ptr<Node> List::moveLecture(std::shared_ptr<Node> node_lecture_ptr, 
     std::shared_ptr<Node> new_view = std::shared_ptr<Node>(new Node(curr_views));
     new_view->setNext(views_node->getNext());
     new_view->setPrev(views_node);
-
+    
+    if(views_node->getNext() != NULL)
+    {
+        views_node->getNext()->setPrev(new_view);
+    }
     views_node->setNext(new_view);
     }
 
-    //insert node to 
+    //insert node to views
     addLectureToViews(views_node->getNext(), node_lecture_ptr);
     
+    //check if needs to move max
+    if(max->getViews() < views_node->getNext()->getViews())
+    {
+        max = views_node->getNext();
+    }
 
+    //if needs to remove old view node
     removeViews(next,prev);
 }
 
 
-//to do:
-int List::getLectureViews(std::shared_ptr<Node> node_lecture_ptr);
-void List::getMostViewd(int numOfClasses, int* courses, int* classes);
+int List::getLectureViews(std::shared_ptr<Node> node_lecture_ptr)
+{
+    return node_lecture_ptr->getRight()->getViews();
+}
+
+void List::getMostViewd(int numOfClasses, int* courses, int* classes)
+{
+    std::shared_ptr<Node> iterator = max->getRight();
+    while(numOfClasses != 0)
+    {
+        //should never be null
+        assert(iterator != NULL);
+
+        *classes = iterator->getCalssId();
+        *courses = iterator->getCourseId();
+
+        if(iterator->getNext() == NULL)
+        {
+            iterator = iterator->getRight()->getPrev()->getRight();
+        }
+        else
+        {
+            iterator = iterator -> getNext();
+        }
+        numOfClasses--;
+    }
+}
