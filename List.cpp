@@ -56,15 +56,17 @@ void List::disconnectLecture(std::shared_ptr<Node> next, std::shared_ptr<Node> p
     }    
 }
 
-std::shared_ptr<Node> List::addLectureToViews(std::shared_ptr<Node> node_views_ptr, std::shared_ptr<Node> node_lecture_ptr)
+void List::addLectureToViews(std::shared_ptr<Node> node_views_ptr, std::shared_ptr<Node> node_lecture_ptr)
 {
     std::shared_ptr<Node> first = node_views_ptr->getRight();
-
     node_lecture_ptr->setNext(first);
     node_lecture_ptr->setPrev(node_views_ptr);
     node_lecture_ptr->setRight(node_views_ptr);
 
-    first->setPrev(node_lecture_ptr);
+    if(first!=NULL)
+    {
+        first->setPrev(node_lecture_ptr);
+    }
     node_views_ptr->setRight(node_lecture_ptr);
 }
 
@@ -72,10 +74,13 @@ std::shared_ptr<Node> List::addLectureToViews(std::shared_ptr<Node> node_views_p
 std::shared_ptr<Node> List::addLecture(int new_course_id, int new_class_id)
 {
     std::shared_ptr<Node> new_node = std::shared_ptr<Node>(new Node(new_course_id,new_class_id));
+    std::cout<<new_node->getCourseId()<<","<<new_node->getCalssId()<<"new node\n";//Debug
     addLectureToViews(head, new_node);
+    std::cout<<head->getRight()->getCourseId()<<","<<head->getRight()->getCalssId()<<"first node\n";//Debug
+    return new_node;
 }
 
-std::shared_ptr<Node> List::moveLecture(std::shared_ptr<Node> node_lecture_ptr, int time)
+void List::moveLecture(std::shared_ptr<Node> node_lecture_ptr, int time)
 {
     std::shared_ptr<Node> prev = node_lecture_ptr->getPrev();
     std::shared_ptr<Node> next = node_lecture_ptr->getNext();
@@ -132,6 +137,8 @@ int List::getLectureViews(std::shared_ptr<Node> node_lecture_ptr)
 
 void List::getMostViewd(int numOfClasses, int* courses, int* classes)
 {
+    std::cout<<"sl \n";
+    
     std::shared_ptr<Node> iterator = max->getRight();
     while(numOfClasses != 0)
     {
@@ -140,6 +147,8 @@ void List::getMostViewd(int numOfClasses, int* courses, int* classes)
 
         *classes = iterator->getCalssId();
         *courses = iterator->getCourseId();
+        courses++;
+        classes++;
 
         if(iterator->getNext() == NULL)
         {

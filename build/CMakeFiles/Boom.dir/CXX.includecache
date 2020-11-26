@@ -15,10 +15,8 @@ Node.h
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
 assert.h
 -
-
-/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp
-Node.h
-/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
+iostream
+-
 
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
 memory

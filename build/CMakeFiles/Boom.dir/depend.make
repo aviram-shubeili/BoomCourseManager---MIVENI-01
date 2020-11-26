@@ -24,5 +24,8 @@ CMakeFiles/Boom.dir/Node.cpp.o: ../Node.cpp
 CMakeFiles/Boom.dir/Node.cpp.o: ../Node.h
 CMakeFiles/Boom.dir/Node.cpp.o: ../library.h
 
+CMakeFiles/Boom.dir/main.cpp.o: ../List.h
+CMakeFiles/Boom.dir/main.cpp.o: ../Node.h
+CMakeFiles/Boom.dir/main.cpp.o: ../library.h
 CMakeFiles/Boom.dir/main.cpp.o: ../main.cpp
 

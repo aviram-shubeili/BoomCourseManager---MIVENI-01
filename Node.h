@@ -44,15 +44,6 @@ public:
      *
      *
      */
-    ~Node();
-
-    /**
-     * Description:
-     *
-     * may throw this exceptions:
-     *
-     *
-     */
     int getViews();
     /**
      * Description:
