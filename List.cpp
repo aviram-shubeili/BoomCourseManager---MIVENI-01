@@ -13,17 +13,22 @@ List::~List()
 
 void removeLectureFromNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id);
 {
-   std::shared_ptr<Avl_n> course_node = node_ptr->getAvl()->find(course_id);
-   if(course_node != NULL)
+    //find and store the data of course mode
+   std::shared_ptr<Avl_n> course_data_node = node_ptr->getAvl()->find(course_id);
+   //if the course exist in this node
+   if(course_data_node != NULL)
    {
-       course_node->getData()->remove(classes_id);
-       //if it was the last class
-       if(course_node->getData()->isEmpty())
+       //remove calss from the course tree
+       course_data_node->getData()->remove(classes_id);
+       //if it was the last class (the course tree is empty)
+       if(course_data_node->getData()->isEmpty())
        {
+           //remove course tree
            node_ptr->getAvl()->remove(course_id);
            //if it is the last course
            if(node_ptr->getAvl()->isEmpty())
            {
+               //remove all the node
                removeNode(node_ptr);
            }
        }
@@ -47,6 +52,7 @@ void List::removeNode(std::shared_ptr<Node> node_ptr)
        next->setPrev(prev);
     }    
 }
+
 void List::addLectureToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id)
 {
     std::shared_ptr<Avl_n> course_node = node_ptr->getAvl()->find(course_id);
@@ -115,8 +121,27 @@ int List::getLectureViews(std::shared_ptr<Node> node_lecture_ptr)
     return node_lecture_ptr->getViews();
 }
 
+void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id)
+{
+    //find and store the data of course mode
+   std::shared_ptr<Avl_n> course_data_node = node_ptr->getAvl()->find(course_id);
+   //if the course exist in this node
+   if(course_data_node != NULL)
+   {
+        //remove course tree
+        node_ptr->getAvl()->remove(course_id);
+        if(node_ptr->getAvl()->isEmpty())
+        {
+               //remove all the node
+               removeNode(node_ptr);
+        }
+   }
+}
+
+
 void List::getMostViewd(int numOfClasses, int* courses, int* classes)
 {
+
 }
 
 

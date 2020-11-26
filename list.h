@@ -16,7 +16,16 @@ class List {
 private:
     std::shared_ptr<Node> head;//points to 0 views node
     std::shared_ptr<Node> max;//points to the max views node
+    /**
+     * Description: will remove the node from the list
+     * may throw this exceptions:
+     */
     static void addLectureToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id);
+    /**
+     * Description: will remove the node from the list
+     * may throw this exceptions:
+     */
+    void List::removeNode(std::shared_ptr<Node> node_ptr) 
 public:
     /**
      * Description:
@@ -34,11 +43,6 @@ public:
      */
     static void removeLectureFromNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id);
     /**
-     * Description: will remove the node from the list
-     * may throw this exceptions:
-     */
-    void List::removeNode(std::shared_ptr<Node> node_ptr) 
-    /**
      * Description:
      * may throw this exceptions:
      */
@@ -54,7 +58,11 @@ public:
      * may throw this exceptions:
      */
     int getLectureViews(std::shared_ptr<Node> node_lecture_ptr);
-
+    /**
+     * Description: will remove the course from the node - will remove node if it is empty
+     * may throw this exceptions:
+     */
+    static void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id);
 
 };
 #endif
