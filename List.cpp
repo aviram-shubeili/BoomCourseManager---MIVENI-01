@@ -1,9 +1,8 @@
 #include "List.h"
-//NOTES: funtions will not check if they are getting legal input!
 
 List::List()
 {
-    head = std::shared_ptr<Node>(new Node(0));
+    head = std::shared_ptr<Node>(new Node(0), shared_ptr<Avl>(new Avl()));
     max = head;
 }
 
@@ -12,152 +11,114 @@ List::~List()
     max = head = NULL;
 }
 
-void List::removeLecture(std::shared_ptr<Node> node_lecture_ptr)
+void removeLectureFromNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id);
 {
-    std::shared_ptr<Node> prev = node_lecture_ptr->getPrev();
-    std::shared_ptr<Node> next = node_lecture_ptr->getNext();
-
-    disconnectLecture(next,prev);
-    removeViews(next,prev);
-
+   std::shared_ptr<Avl_n> course_node = node_ptr->getAvl()->find(course_id);
+   if(course_node != NULL)
+   {
+       course_node->getData()->remove(classes_id);
+       //if it was the last class
+       if(course_node->getData()->isEmpty())
+       {
+           node_ptr->getAvl()->remove(course_id);
+           //if it is the last course
+           if(node_ptr->getAvl()->isEmpty())
+           {
+               removeNode(node_ptr);
+           }
+       }
+   }
 }
 
-void List::removeViews(std::shared_ptr<Node> next, std::shared_ptr<Node> prev)
+void List::removeNode(std::shared_ptr<Node> node_ptr)
 {
-    //the node removed was the last one in the views list
-    if(next == NULL && prev->getViews() != LECTURE_NODE)
+    //dont delete the 0 node
+    if(node_ptr->getViews == 0)
     {
-        if(prev->getViews() != 0) //dont delete 0
-        {
-            prev->setPrev(prev->getNext());
-            if(prev->getNext() != NULL)
-            {
-                prev->getNext()->setPrev(prev->getPrev());
-            }
-        }
-    }
-}
-
-void List::disconnectLecture(std::shared_ptr<Node> next, std::shared_ptr<Node> prev)
-{
-    if(prev->getViews() != LECTURE_NODE)
-    {
-        prev->setNext(next);
-    }
-    else
-    {
-        prev->setRight(next);
+        return;
     }
 
-    //middle one
+    std::shared_ptr<Node> prev = node_ptr->getPrev();
+    std::shared_ptr<Node> next = node_ptr->getNext();
+
+    prev->setNext(next);
     if(next != NULL)
     {
        next->setPrev(prev);
     }    
 }
-
-void List::addLectureToViews(std::shared_ptr<Node> node_views_ptr, std::shared_ptr<Node> node_lecture_ptr)
+void List::addLectureToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id)
 {
-    std::shared_ptr<Node> first = node_views_ptr->getRight();
-    node_lecture_ptr->setNext(first);
-    node_lecture_ptr->setPrev(node_views_ptr);
-    node_lecture_ptr->setRight(node_views_ptr);
-
-    if(first!=NULL)
+    std::shared_ptr<Avl_n> course_node = node_ptr->getAvl()->find(course_id);
+    if(course_node == NULL)
     {
-        first->setPrev(node_lecture_ptr);
+        std::shared_ptr<Avl> new_tree = shared_ptr<new Avl()>;
+        new_tree->insert(classes_id,NULL);
+        node_ptr->getAvl()->insert(course_id, new_tree);
     }
-    node_views_ptr->setRight(node_lecture_ptr);
-}
-
-
-std::shared_ptr<Node> List::addLecture(int new_course_id, int new_class_id)
-{
-    std::shared_ptr<Node> new_node = std::shared_ptr<Node>(new Node(new_course_id,new_class_id));
-    std::cout<<new_node->getCourseId()<<","<<new_node->getCalssId()<<"new node\n";//Debug
-    addLectureToViews(head, new_node);
-    std::cout<<head->getRight()->getCourseId()<<","<<head->getRight()->getCalssId()<<"first node\n";//Debug
-    return new_node;
-}
-
-void List::moveLecture(std::shared_ptr<Node> node_lecture_ptr, int time)
-{
-    std::shared_ptr<Node> prev = node_lecture_ptr->getPrev();
-    std::shared_ptr<Node> next = node_lecture_ptr->getNext();
-    std::shared_ptr<Node> views_node = node_lecture_ptr->getRight();
-
-    int curr_views = views_node->getViews() + time;
-
-    disconnectLecture(next,prev);
-
-    int nextViews;
-    while(views_node->getNext() != NULL)
+    else
     {
-        nextViews = views_node->getNext()->getViews();
-        if(nextViews >= curr_views)
+        course_node->getData()->insert(classes_id,NULL);
+    }
+}
+void std::shared_ptr<Node> List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time)
+{
+    std::shared_ptr<Node> iterator = node_ptr;
+    int old_time = node_ptr->getViews();
+    if(old_time != 0)
+    {
+        //if the current node will be deleted i will still hold the place in the list;
+        iterator = node_ptr->getPrev();
+    }
+
+    removeLectureFromNode(node_ptr, classes_id,course_id);
+    int nextViews = 0;
+
+    while(iterator->getNext() != NULL)
+    {
+        nextViews = iterator->getNext()->getViews();
+        if(nextViews >= old_time + time)
         {
             break;
         }
 
-        views_node = views_node->getNext();
+        iterator = iterator->getNext();
     }
 
-    if(views_node->getNext() == NULL || nextViews > curr_views)
+    if(iterator->getNext() == NULL || nextViews > old_time + time)
     {
-    //create new views node and set it as next
-    std::shared_ptr<Node> new_view = std::shared_ptr<Node>(new Node(curr_views));
-    new_view->setNext(views_node->getNext());
-    new_view->setPrev(views_node);
+        //create new views node and set it as next
+        std::shared_ptr<Node> new_view = std::shared_ptr<Node>(new Node(curr_views));
+
+        new_view->setNext(iterator->getNext());
+        new_view->setPrev(iterator);
     
-    if(views_node->getNext() != NULL)
-    {
-        views_node->getNext()->setPrev(new_view);
-    }
-    views_node->setNext(new_view);
+        if(iterator->getNext() != NULL)
+        {
+        iterator->getNext()->setPrev(new_view);
+        }
+        iterator->setNext(new_view);
     }
 
-    //insert node to views
-    addLectureToViews(views_node->getNext(), node_lecture_ptr);
+    //insert lecture to views
+    addLectureToNode(iterator->getNext(),classes_id,course_id);
     
     //check if needs to move max
-    if(max->getViews() < views_node->getNext()->getViews())
+    if(max->getViews() < iterator->getNext()->getViews())
     {
-        max = views_node->getNext();
+        max = iterator->getNext();
     }
-
-    //if needs to remove old view node
-    removeViews(next,prev);
 }
-
 
 int List::getLectureViews(std::shared_ptr<Node> node_lecture_ptr)
 {
-    return node_lecture_ptr->getRight()->getViews();
+    return node_lecture_ptr->getViews();
 }
 
 void List::getMostViewd(int numOfClasses, int* courses, int* classes)
 {
-    std::cout<<"sl \n";
-    
-    std::shared_ptr<Node> iterator = max->getRight();
-    while(numOfClasses != 0)
-    {
-        //should never be null
-        assert(iterator != NULL);
-
-        *classes = iterator->getCalssId();
-        *courses = iterator->getCourseId();
-        courses++;
-        classes++;
-
-        if(iterator->getNext() == NULL)
-        {
-            iterator = iterator->getRight()->getPrev()->getRight();
-        }
-        else
-        {
-            iterator = iterator -> getNext();
-        }
-        numOfClasses--;
-    }
 }
+
+
+
+

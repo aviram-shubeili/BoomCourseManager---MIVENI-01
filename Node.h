@@ -2,7 +2,6 @@
 #define BOOM_NODE_H
 #include <memory>
 #include "library.h"
-#define LECTURE_NODE -1
 /**
  * Description:
  *
@@ -11,11 +10,9 @@
 class Node {
 
 private:
-    int views;//not view = LECTURE_NODE
-    int course_id;
-    int class_id;
+    int views;
+    std::shared_ptr<Avl> courses_avl;
 
-    std::shared_ptr<Node> right;
     std::shared_ptr<Node> next;
     std::shared_ptr<Node> prev;
 
@@ -28,15 +25,7 @@ public:
      *
      *
      */
-    Node(int new_views);
-    /**
-     * Description:
-     *
-     * may throw this exceptions:
-     *
-     *
-     */
-    Node(int new_course_id, int new_class_id);
+    Node(int views);
     /**
      * Description:
      *
@@ -45,22 +34,6 @@ public:
      *
      */
     int getViews();
-    /**
-     * Description:
-     *
-     * may throw this exceptions:
-     *
-     *
-     */
-    int getCourseId();
-    /**
-     * Description:
-     *
-     * may throw this exceptions:
-     *
-     *
-     */
-    int getCalssId();
     /**
      * Description:
      *
@@ -84,15 +57,6 @@ public:
      *
      *
      */
-    std::shared_ptr<Node> getRight();
-
-    /**
-     * Description:
-     *
-     * may throw this exceptions:
-     *
-     *
-     */
     void setNext(std::shared_ptr<Node> new_next);
     /**
      * Description:
@@ -101,7 +65,7 @@ public:
      *
      *
      */
-    void setPrev(std::shared_ptr<Node> new_prev);
+    void setPrev(std::shared_ptr<Node> new_prev);    
     /**
      * Description:
      *
@@ -109,7 +73,7 @@ public:
      *
      *
      */
-    void setRight(std::shared_ptr<Node> new_right);
+    std::shared_ptr<Avl> getAvl();
 
 };
 
