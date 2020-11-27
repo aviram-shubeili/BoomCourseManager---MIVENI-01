@@ -1,7 +1,8 @@
 #ifndef BOOM_NODE_H
 #define BOOM_NODE_H
 #include <memory>
-#include "library.h"
+#include "Avl.h"
+
 /**
  * Description:
  *

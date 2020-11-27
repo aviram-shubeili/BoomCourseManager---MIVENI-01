@@ -1,9 +1,5 @@
 #ifndef BOOM_AVL_H
 #define BOOM_AVL_H
-#include "Course.h"
-
-
-
 
 /*
  * T ==>

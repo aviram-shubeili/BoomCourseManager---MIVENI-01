@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.cpp
+Avl.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.h
+
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.h
+
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Course.cpp
+Course.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Course.h
+
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Course.h
+List.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
+
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp
 List.h
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
@@ -18,11 +32,19 @@ assert.h
 iostream
 -
 
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp
+Node.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
+
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
 memory
 -
-library.h
-/home/uri.yakar/Mivni/Hw1/BoomCourseManager/library.h
+Avl.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.h
 
-/home/uri.yakar/Mivni/Hw1/BoomCourseManager/library.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/main.cpp
+iostream
+-
+List.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
 

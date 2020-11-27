@@ -1,7 +1,6 @@
 #ifndef LIST_H
 #define LIST_H
 #include "Node.h"
-#include "Avl.h"
 #include <assert.h>
 #include <iostream>
 
