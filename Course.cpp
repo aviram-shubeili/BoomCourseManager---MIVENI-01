@@ -23,3 +23,4 @@ int Course::getViews(int class_id) {
     }
     return classes[class_id]->getViews();
 }
+

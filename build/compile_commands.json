@@ -6,23 +6,13 @@
 },
 {
   "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
-  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/CoursesManager.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/CoursesManager.cpp",
-  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/CoursesManager.cpp"
+  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/AVLTree.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVLTree.cpp",
+  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVLTree.cpp"
 },
 {
   "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
-  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/Course.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Course.cpp",
-  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Course.cpp"
-},
-{
-  "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
-  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/Node.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp",
-  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp"
-},
-{
-  "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",
-  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/List.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp",
-  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp"
+  "command": "/usr/local/bin/g++    -g   -std=gnu++11 -o CMakeFiles/Boom.dir/AVLNode.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVLNode.cpp",
+  "file": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVLNode.cpp"
 },
 {
   "directory": "/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build",

@@ -140,6 +140,60 @@ Boom/fast:
 	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/build
 .PHONY : Boom/fast
 
+AVLNode.o: AVLNode.cpp.o
+
+.PHONY : AVLNode.o
+
+# target to build an object file
+AVLNode.cpp.o:
+	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/AVLNode.cpp.o
+.PHONY : AVLNode.cpp.o
+
+AVLNode.i: AVLNode.cpp.i
+
+.PHONY : AVLNode.i
+
+# target to preprocess a source file
+AVLNode.cpp.i:
+	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/AVLNode.cpp.i
+.PHONY : AVLNode.cpp.i
+
+AVLNode.s: AVLNode.cpp.s
+
+.PHONY : AVLNode.s
+
+# target to generate assembly for a file
+AVLNode.cpp.s:
+	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/AVLNode.cpp.s
+.PHONY : AVLNode.cpp.s
+
+AVLTree.o: AVLTree.cpp.o
+
+.PHONY : AVLTree.o
+
+# target to build an object file
+AVLTree.cpp.o:
+	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/AVLTree.cpp.o
+.PHONY : AVLTree.cpp.o
+
+AVLTree.i: AVLTree.cpp.i
+
+.PHONY : AVLTree.i
+
+# target to preprocess a source file
+AVLTree.cpp.i:
+	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/AVLTree.cpp.i
+.PHONY : AVLTree.cpp.i
+
+AVLTree.s: AVLTree.cpp.s
+
+.PHONY : AVLTree.s
+
+# target to generate assembly for a file
+AVLTree.cpp.s:
+	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/AVLTree.cpp.s
+.PHONY : AVLTree.cpp.s
+
 Auxiliaries.o: Auxiliaries.cpp.o
 
 .PHONY : Auxiliaries.o
@@ -166,114 +220,6 @@ Auxiliaries.s: Auxiliaries.cpp.s
 Auxiliaries.cpp.s:
 	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Auxiliaries.cpp.s
 .PHONY : Auxiliaries.cpp.s
-
-Course.o: Course.cpp.o
-
-.PHONY : Course.o
-
-# target to build an object file
-Course.cpp.o:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Course.cpp.o
-.PHONY : Course.cpp.o
-
-Course.i: Course.cpp.i
-
-.PHONY : Course.i
-
-# target to preprocess a source file
-Course.cpp.i:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Course.cpp.i
-.PHONY : Course.cpp.i
-
-Course.s: Course.cpp.s
-
-.PHONY : Course.s
-
-# target to generate assembly for a file
-Course.cpp.s:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Course.cpp.s
-.PHONY : Course.cpp.s
-
-CoursesManager.o: CoursesManager.cpp.o
-
-.PHONY : CoursesManager.o
-
-# target to build an object file
-CoursesManager.cpp.o:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/CoursesManager.cpp.o
-.PHONY : CoursesManager.cpp.o
-
-CoursesManager.i: CoursesManager.cpp.i
-
-.PHONY : CoursesManager.i
-
-# target to preprocess a source file
-CoursesManager.cpp.i:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/CoursesManager.cpp.i
-.PHONY : CoursesManager.cpp.i
-
-CoursesManager.s: CoursesManager.cpp.s
-
-.PHONY : CoursesManager.s
-
-# target to generate assembly for a file
-CoursesManager.cpp.s:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/CoursesManager.cpp.s
-.PHONY : CoursesManager.cpp.s
-
-List.o: List.cpp.o
-
-.PHONY : List.o
-
-# target to build an object file
-List.cpp.o:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/List.cpp.o
-.PHONY : List.cpp.o
-
-List.i: List.cpp.i
-
-.PHONY : List.i
-
-# target to preprocess a source file
-List.cpp.i:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/List.cpp.i
-.PHONY : List.cpp.i
-
-List.s: List.cpp.s
-
-.PHONY : List.s
-
-# target to generate assembly for a file
-List.cpp.s:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/List.cpp.s
-.PHONY : List.cpp.s
-
-Node.o: Node.cpp.o
-
-.PHONY : Node.o
-
-# target to build an object file
-Node.cpp.o:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Node.cpp.o
-.PHONY : Node.cpp.o
-
-Node.i: Node.cpp.i
-
-.PHONY : Node.i
-
-# target to preprocess a source file
-Node.cpp.i:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Node.cpp.i
-.PHONY : Node.cpp.i
-
-Node.s: Node.cpp.s
-
-.PHONY : Node.s
-
-# target to generate assembly for a file
-Node.cpp.s:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Node.cpp.s
-.PHONY : Node.cpp.s
 
 main.o: main.cpp.o
 
@@ -311,21 +257,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Boom"
+	@echo "... AVLNode.o"
+	@echo "... AVLNode.i"
+	@echo "... AVLNode.s"
+	@echo "... AVLTree.o"
+	@echo "... AVLTree.i"
+	@echo "... AVLTree.s"
 	@echo "... Auxiliaries.o"
 	@echo "... Auxiliaries.i"
 	@echo "... Auxiliaries.s"
-	@echo "... Course.o"
-	@echo "... Course.i"
-	@echo "... Course.s"
-	@echo "... CoursesManager.o"
-	@echo "... CoursesManager.i"
-	@echo "... CoursesManager.s"
-	@echo "... List.o"
-	@echo "... List.i"
-	@echo "... List.s"
-	@echo "... Node.o"
-	@echo "... Node.i"
-	@echo "... Node.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

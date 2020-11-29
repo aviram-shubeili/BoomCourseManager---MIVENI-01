@@ -139,32 +139,82 @@ void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id)
    }
 }
 
-
 void List::getMostViewd(int numOfClasses, int* courses, int* classes)
 {
-
+    std::shared_ptr<Node> curr_max = max;//points to the current views node
+    //assumes that numOfClasses is indeed less the total classes
+    while(numOfClasses > 0)
+    {
+        getMinTree(curr_max, numOfClasses, courses, classes);
+        curr_max = curr_max->getPrev();
+    }
 }
 
 //asume SetVisit(bool) will flag visited 
-void List::getMinTree(std::shared_ptr<Avl> min,int numOfClasses, int* courses, int* classes)
+void getMinTree(AVLNode<AVLTree<int*>>* min,int& numOfClasses, int* courses, int* classes)
 {
-    if(min == null)
+    if(min == NULL && numOfClasses > 0)
     {
         return;
     }
 
     min.SetVisit(true);
+    getMinLectures(min, numOfClasses, courses, classes, min->getKey());
+
+    AVLNode<AVLTree<int*>>* father = min->getFather();
+    AVLNode<AVLTree<int*>>* left = min->getLeft();
+    AVLNode<AVLTree<int*>>* right = min->getRight();
+    if(left != NULL && !left->visited()&& numOfClasses > 0)
+    {
+        getMinTree(left, numOfClasses, courses, classes);
+    }
+    //never visited right
+    if(right != NULL&& numOfClasses > 0)
+    {
+        getMinTree(right, numOfClasses, courses, classes);
+    }
+    if(father != NULL&& numOfClasses > 0)
+    {
+        getMinTree(father, numOfClasses, courses, classes);
+    }
+
+    min.SetVisit(false);
 }
 
 //asume SetVisit(bool) will flag visited 
-void List::getMinTree(std::shared_ptr<Avl> min,int numOfClasses, int* courses, int* classes)
+void getMinLectures(AVLNode<int*>* min,int& numOfClasses, int* courses, int* classes, int curr_course)
 {
-    if(min == null)
+    if(min == NULL && numOfClasses > 0)
     {
         return;
     }
-    
+
     min.SetVisit(true);
+    numOfClasses--;
+    *courses = curr_course;
+    *classes = min -> getKey();
+    courses++;
+    classes++;
+
+    AVLNodeAVLTree<int*>* father = min->getFather();
+    AVLNodeAVLTree<int*>* left = min->getLeft();
+    AVLNodeAVLTree<int*>* right = min->getRight();
+
+    if(left != NULL && !left->visited() && numOfClasses > 0)
+    {
+        getMinLectures(left, numOfClasses, courses, classes,curr_course);
+    }
+    //never visited right
+    if(right != NULL&& numOfClasses > 0)
+    {
+        getMinLectures(right, numOfClasses, courses, classes,curr_course);
+    }
+    if(father != NULL&& numOfClasses > 0)
+    {
+        getMinLectures(father, numOfClasses, courses, classes,curr_course);
+    }
+
+    min.SetVisit(false);
 }
 
 

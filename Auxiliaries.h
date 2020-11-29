@@ -1,3 +1,4 @@
+
 #ifndef BOOM_AUXILIARIES_H
 #define BOOM_AUXILIARIES_H
 

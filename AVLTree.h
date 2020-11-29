@@ -42,8 +42,8 @@ private:
     void updateHeight(AVLNode<T>* node);
 
 
-    AVLNode<T>* LL(AVLNode<T> *son, AVLNode<T> *father);
-    AVLNode<T>* RR(AVLNode<T> *son, AVLNode<T> *father);
+    AVLNode<T>* LL(AVLNode<T> *A, AVLNode<T> *B);
+    AVLNode<T>* RR(AVLNode<T> *A, AVLNode<T> *B);
     AVLNode<T>* LR(AVLNode<T> *son, AVLNode<T> *father, AVLNode<T> *grand_father);
     AVLNode<T>* RL(AVLNode<T> *son, AVLNode<T> *father, AVLNode<T> *grand_father);
 
@@ -76,7 +76,7 @@ private:
      *
   */
 
-   // void insert(AVLNode<T> *new_node, AVLNode<T> *root);
+    void insert(AVLNode<T> *new_node, AVLNode<T> *current_root);
 
 public:
     /**
@@ -157,57 +157,67 @@ int AVLTree<T>::getBF(AVLNode<T> *node) {
 }
 
 template<typename T>
-AVLNode<T> *AVLTree<T>::LL(AVLNode<T> *son, AVLNode<T> *father) {
-    // TODO: IS IT POSSIBLE THAT son OR father IS NULL?
-    father->setLeftSon(son->getRightSon());
-    son->setRightSon(father);
+AVLNode<T> *AVLTree<T>::LL(AVLNode<T> *A, AVLNode<T> *B) {
+    // TODO: IS IT POSSIBLE THAT A OR B IS NULL?
+    B->setLeftSon(A->getRightSon());
+    A->setRightSon(B);
+    if(B->getLeftSon()) {
+        (B->getLeftSon())->setFather(B);
+    }
+    A->setFather(B->getFather());
+    B->setFather(A);
+//    if(B == root) {
+//        root = A;
+//    }
 
 
     // update Heights!
 
-    updateHeight(father);
-    updateHeight(son);
+    updateHeight(A);
+    updateHeight(B);
 
     // return the subtree`s new root.
-    return son;
+    return A;
 }
 
 template<typename T>
-AVLNode<T> *AVLTree<T>::RR(AVLNode<T> *son, AVLNode<T> *father) {
-    // TODO: IS IT POSSIBLE THAT father OR son IS NULL?
-    father->setRightSon(son->getLeftSon());
-    son->setLeftSon(father);
+AVLNode<T> *AVLTree<T>::RR(AVLNode<T> *A, AVLNode<T> *B) {
+    // TODO: IS IT POSSIBLE THAT B OR A IS NULL?
+    B->setRightSon(A->getLeftSon());
+    A->setLeftSon(B);
+    if(B->getRightSon()) {
+        (B->getRightSon())->setFather(B);
+    }
+    A->setFather(B->getFather());
+    B->setFather(A);
 
     // update Heights!
+    updateHeight(A);
+    updateHeight(B);
 
-    updateHeight(father);
-    updateHeight(son);
-
+    if(B == root) {
+        root = A;
+    }
     // return the subtree`s new root.
-    return son;
+    return A;
 }
 
 template<typename T>
 AVLNode<T> *AVLTree<T>::LR(AVLNode<T> *son, AVLNode<T> *father, AVLNode<T> *grand_father) {
     // TODO: IS IT POSSIBLE THAT father OR son IS NULL?
 
-    father = RR(son,father);
-    grand_father = LL(father,grand_father);
-
-    return grand_father;
+    grand_father->setLeftSon(RR(son,father));
+    return LL(father,grand_father);
 }
 
 template<typename T>
 AVLNode<T> *AVLTree<T>::RL(AVLNode<T> *son, AVLNode<T> *father, AVLNode<T> *grand_father) {
     // TODO: IS IT POSSIBLE THAT father OR son IS NULL?
 
-    father = LL(son,father);
-    grand_father = RR(father,grand_father);
-
-    return grand_father;
-
+    grand_father->setRightSon(LL(son,father));
+    return RR(father,grand_father);
 }
-/*
+
 template<typename T>
 void AVLTree<T>::clearTree(AVLNode<T> *node) {
     if(node == NULL) {
@@ -216,8 +226,8 @@ void AVLTree<T>::clearTree(AVLNode<T> *node) {
     // post order deleting
     clearTree(node->getLeftSon());
     clearTree(node->getRightSon());
-    ~node;
-}*/
+    node->~AVLNode();
+}
 
 template<typename T>
 bool AVLTree<T>::isLeaf(AVLNode<T> *node) const {
@@ -274,51 +284,82 @@ void AVLTree<T>::insert(int key, T &data) {
         throw NodeAlreadyExists();
     }
     // T will be copied to AVLNode
-    AVLNode<T> new_node = new AVLNode<T>(key,data);
-
+    AVLNode<T>* new_node = new AVLNode<T>(key,data);
     // empty tree
-    if(root = NULL) {
+    if(root == NULL) {
         root = new_node;
         min_node = new_node;
         return;
     }
     // todo: preserve min node!
-    if(min_node->getKey() > new_node.getKey()) {
+    if(min_node->getKey() > new_node->getKey()) {
         min_node = new_node;
     }
     insert(new_node,root);
 
 }
-/*
-template<typename T>
-void AVLTree<T>::insert(AVLNode<T> *new_node, AVLNode<T> *root) {
 
-        // new_node should be placed in the left subtree
-    if(new_node->getKey() < root->getKey()) {
-        if(root->getLeftSon() != NULL) {
+template<typename T>
+void AVLTree<T>::insert(AVLNode<T> *new_node, AVLNode<T> *current_root) {
+
+
+    // new_node should be placed in the left subtree
+    if(new_node->getKey() < current_root->getKey()) {
+        if(current_root->getLeftSon() != NULL) {
             // keep searching for a place in left subtree
-            insert(new_node, root->getLeftSon());
+            insert(new_node, current_root->getLeftSon());
         }
         else {
             // there is no left subtree --> insert new_node
-            root->setLeftSon(new_node);
+            current_root->setLeftSon(new_node);
+            new_node->setFather(current_root);
         }
     }
         // new_node should be placed in the left subtree
 
     else {
-        if(root->getRightSon() != NULL) {
+        if(current_root->getRightSon() != NULL) {
             // keep searching for a place in right subtree
-            insert(new_node, root->getRightSon());
+            insert(new_node, current_root->getRightSon());
         }
         else {
             // there is no right subtree --> insert new_node
-            root->setRightSon(new_node);
+            current_root->setRightSon(new_node);
+            new_node->setFather(current_root);
         }
     }
 
+    // Done with insertion!
+
+    // Start balancing:
+    int bf = getBF(current_root);
+
+// Left Subtree is unbalanced!
+    if(bf > 1) {
+            // LR
+        if(getBF(current_root->getLeftSon()) == -1) {
+            current_root = LR((current_root->getLeftSon())->getRightSon(), current_root->getLeftSon(), current_root);
+        }
+            // LL
+        else {
+            current_root = LL(current_root->getLeftSon(), current_root);
+        }
+    }
+// right Subtree is unbalaced!
+    else if( bf < -1) {
+
+        if(getBF(current_root->getRightSon()) == 1) {
+            // RL
+            current_root = RL((current_root->getRightSon())->getLeftSon(),current_root->getRightSon(),current_root);
+        } // RR
+        else {
+            current_root = RR(current_root->getRightSon(),current_root);
+        }
+
+    }
+    updateHeight(current_root);
 
 }
 
-*/
+
 #endif //BOOM_AVL_H

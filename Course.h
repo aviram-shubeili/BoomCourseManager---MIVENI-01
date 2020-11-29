@@ -1,6 +1,7 @@
 #ifndef BOOM_COURSE_H
 #define BOOM_COURSE_H
 #include "Node.h"
+#include "List.h"
 /**
  * Description:
  *
