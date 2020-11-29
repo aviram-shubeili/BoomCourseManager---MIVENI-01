@@ -12,4 +12,12 @@ set(MTM_FLAGS_RELEASE "${MTM_FLAGS_DEBUG} -DNDEBUG")
 set(CMAKE_C_FLAGS ${MTM_FLAGS_DEBUG})
 
 
-add_executable(Boom main.cpp CoursesManager.cpp CoursesManager.h Avl.cpp Avl.h Course.cpp Course.h Node.cpp Node.h List.h List.cpp AVLTree.cpp AVLTree.h ss.cpp ss.h)
+add_executable(Boom
+        main.cpp
+        CoursesManager.cpp
+        AVLTree.cpp
+        AVLNode.cpp
+        Course.cpp
+        Node.cpp
+        List.cpp
+        Auxiliaries.cpp Auxiliaries.h)

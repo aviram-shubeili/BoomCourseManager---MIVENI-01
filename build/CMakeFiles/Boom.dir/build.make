@@ -100,18 +100,18 @@ CMakeFiles/Boom.dir/CoursesManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Boom.dir/CoursesManager.cpp.s"
 	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uri.yakar/Mivni/Hw1/BoomCourseManager/CoursesManager.cpp -o CMakeFiles/Boom.dir/CoursesManager.cpp.s
 
-CMakeFiles/Boom.dir/Avl.cpp.o: CMakeFiles/Boom.dir/flags.make
-CMakeFiles/Boom.dir/Avl.cpp.o: ../Avl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Boom.dir/Avl.cpp.o"
-	/usr/local/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Boom.dir/Avl.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.cpp
+CMakeFiles/Boom.dir/AVLTree.cpp.o: CMakeFiles/Boom.dir/flags.make
+CMakeFiles/Boom.dir/AVLTree.cpp.o: ../AVLTree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Boom.dir/AVLTree.cpp.o"
+	/usr/local/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Boom.dir/AVLTree.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVLTree.cpp
 
-CMakeFiles/Boom.dir/Avl.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Boom.dir/Avl.cpp.i"
-	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.cpp > CMakeFiles/Boom.dir/Avl.cpp.i
+CMakeFiles/Boom.dir/AVLTree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Boom.dir/AVLTree.cpp.i"
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVLTree.cpp > CMakeFiles/Boom.dir/AVLTree.cpp.i
 
-CMakeFiles/Boom.dir/Avl.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Boom.dir/Avl.cpp.s"
-	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Avl.cpp -o CMakeFiles/Boom.dir/Avl.cpp.s
+CMakeFiles/Boom.dir/AVLTree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Boom.dir/AVLTree.cpp.s"
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVLTree.cpp -o CMakeFiles/Boom.dir/AVLTree.cpp.s
 
 CMakeFiles/Boom.dir/Course.cpp.o: CMakeFiles/Boom.dir/flags.make
 CMakeFiles/Boom.dir/Course.cpp.o: ../Course.cpp
@@ -126,18 +126,18 @@ CMakeFiles/Boom.dir/Course.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Boom.dir/Course.cpp.s"
 	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Course.cpp -o CMakeFiles/Boom.dir/Course.cpp.s
 
-CMakeFiles/Boom.dir/Node.cpp.o: CMakeFiles/Boom.dir/flags.make
-CMakeFiles/Boom.dir/Node.cpp.o: ../Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Boom.dir/Node.cpp.o"
-	/usr/local/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Boom.dir/Node.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp
+CMakeFiles/Boom.dir/AVL_n.cpp.o: CMakeFiles/Boom.dir/flags.make
+CMakeFiles/Boom.dir/AVL_n.cpp.o: ../AVL_n.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Boom.dir/AVL_n.cpp.o"
+	/usr/local/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Boom.dir/AVL_n.cpp.o -c /home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVL_n.cpp
 
-CMakeFiles/Boom.dir/Node.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Boom.dir/Node.cpp.i"
-	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp > CMakeFiles/Boom.dir/Node.cpp.i
+CMakeFiles/Boom.dir/AVL_n.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Boom.dir/AVL_n.cpp.i"
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVL_n.cpp > CMakeFiles/Boom.dir/AVL_n.cpp.i
 
-CMakeFiles/Boom.dir/Node.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Boom.dir/Node.cpp.s"
-	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.cpp -o CMakeFiles/Boom.dir/Node.cpp.s
+CMakeFiles/Boom.dir/AVL_n.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Boom.dir/AVL_n.cpp.s"
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVL_n.cpp -o CMakeFiles/Boom.dir/AVL_n.cpp.s
 
 CMakeFiles/Boom.dir/List.cpp.o: CMakeFiles/Boom.dir/flags.make
 CMakeFiles/Boom.dir/List.cpp.o: ../List.cpp
@@ -156,9 +156,9 @@ CMakeFiles/Boom.dir/List.cpp.s: cmake_force
 Boom_OBJECTS = \
 "CMakeFiles/Boom.dir/main.cpp.o" \
 "CMakeFiles/Boom.dir/CoursesManager.cpp.o" \
-"CMakeFiles/Boom.dir/Avl.cpp.o" \
+"CMakeFiles/Boom.dir/AVLTree.cpp.o" \
 "CMakeFiles/Boom.dir/Course.cpp.o" \
-"CMakeFiles/Boom.dir/Node.cpp.o" \
+"CMakeFiles/Boom.dir/AVL_n.cpp.o" \
 "CMakeFiles/Boom.dir/List.cpp.o"
 
 # External object files for target Boom
@@ -166,9 +166,9 @@ Boom_EXTERNAL_OBJECTS =
 
 Boom: CMakeFiles/Boom.dir/main.cpp.o
 Boom: CMakeFiles/Boom.dir/CoursesManager.cpp.o
-Boom: CMakeFiles/Boom.dir/Avl.cpp.o
+Boom: CMakeFiles/Boom.dir/AVLTree.cpp.o
 Boom: CMakeFiles/Boom.dir/Course.cpp.o
-Boom: CMakeFiles/Boom.dir/Node.cpp.o
+Boom: CMakeFiles/Boom.dir/AVL_n.cpp.o
 Boom: CMakeFiles/Boom.dir/List.cpp.o
 Boom: CMakeFiles/Boom.dir/build.make
 Boom: CMakeFiles/Boom.dir/link.txt
