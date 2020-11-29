@@ -1,5 +1,12 @@
-//
-// Created by avira on 23/11/2020.
-//
 
-#include "BoomExceptions.h"
+#ifndef BOOM_BOOMEXCEPTIONS_H
+#define BOOM_BOOMEXCEPTIONS_H
+#include <exception>
+
+class BoomExceptions : public std::exception{ };
+
+class InvalidInput : public BoomExceptions{ };
+
+class NodeAlreadyExists : public BoomExceptions { };
+
+#endif //BOOM_BOOMEXCEPTIONS_H

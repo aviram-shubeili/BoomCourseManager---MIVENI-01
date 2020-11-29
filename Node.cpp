@@ -2,7 +2,7 @@
 
 Node::Node(int new_views) : views(new_views)
 {
-    courses_avl = std::shared_ptr<Avl>(new Avl());
+    courses_avl = std::shared_ptr<AVLTree<AVLTree<int*>>>(new AVLTree<AVLTree<int*>>());
 }
 
 int Node::getViews() {
@@ -26,7 +26,7 @@ void Node::setPrev(std::shared_ptr<Node> new_prev) {
 prev = new_prev;
 }
 
-std::shared_ptr<Avl> Node::getAvl()
+std::shared_ptr<AVLTree<AVLTree<int*>>> Node::getAvl()
 {
     return courses_avl;
 }

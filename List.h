@@ -16,7 +16,7 @@ private:
     std::shared_ptr<Node> head;//points to 0 views node
     std::shared_ptr<Node> max;//points to the max views node
     /**
-     * Description: will remove the node from the list
+     * Description: will add lecture to the wated node
      * may throw this exceptions:
      */
     static void addLectureToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id);
@@ -24,7 +24,7 @@ private:
      * Description: will remove the node from the list
      * may throw this exceptions:
      */
-    void List::removeNode(std::shared_ptr<Node> node_ptr) 
+    static void removeNode(std::shared_ptr<Node> node_ptr);
 public:
     /**
      * Description:
@@ -37,23 +37,23 @@ public:
      */
     ~List();
     /**
-     * Description: will remove the lecture from the node
+     * Description: will remove the lecture from the node (from the course tree)
      * may throw this exceptions:
      */
     static void removeLectureFromNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id);
     /**
-     * Description:
+     * Description: will add views to wanted leture in node
      * may throw this exceptions:
      */
-    void std::shared_ptr<Node> List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time);
+    void AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time);
     /**
-     * Description:
+     * Description: returns the mosted viewed courses
      *note: will not throw errors! you need to check if legal before
      * may throw this exceptions:
      */
     void getMostViewd(int numOfClasses, int* courses, int* classes);
     /**
-     * Description:
+     * Description: returen the current views of specific lecture
      * may throw this exceptions:
      */
     int getLectureViews(std::shared_ptr<Node> node_lecture_ptr);

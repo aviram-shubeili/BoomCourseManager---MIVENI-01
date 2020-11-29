@@ -2,7 +2,7 @@
 
 List::List()
 {
-    head = std::shared_ptr<Node>(new Node(0), shared_ptr<Avl>(new Avl()));
+//    head = std::shared_ptr<Node>(new Node(0), std::shared_ptr<AVLTree<AVLTree<int>>>(new AVLTree<AVLTree<int>>()));
     max = head;
 }
 
@@ -11,22 +11,23 @@ List::~List()
     max = head = NULL;
 }
 
-void removeLectureFromNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id);
+void List::removeLectureFromNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id)
 {
-    //find and store the data of course mode
-   std::shared_ptr<Avl_n> course_data_node = node_ptr->getAvl()->find(course_id);
+    //find and store the data of course node
+   std::shared_ptr<AVLTree<AVLTree<int*>>> tree_ptr = (node_ptr->getAvl());
+   AVLNode<AVLTree<int*>>* course_data_node = tree_ptr->find(course_id,tree_ptr->getRoot());//the node of the course
    //if the course exist in this node
    if(course_data_node != NULL)
    {
        //remove calss from the course tree
-       course_data_node->getData()->remove(classes_id);
+       course_data_node->getData().remove(classes_id);
        //if it was the last class (the course tree is empty)
-       if(course_data_node->getData()->isEmpty())
+       if(course_data_node->getData().getRoot() == NULL)
        {
            //remove course tree
            node_ptr->getAvl()->remove(course_id);
            //if it is the last course
-           if(node_ptr->getAvl()->isEmpty())
+           if(node_ptr->getAvl()->getRoot() == NULL)
            {
                //remove all the node
                removeNode(node_ptr);
@@ -38,7 +39,7 @@ void removeLectureFromNode(std::shared_ptr<Node> node_ptr, int classes_id, int c
 void List::removeNode(std::shared_ptr<Node> node_ptr)
 {
     //dont delete the 0 node
-    if(node_ptr->getViews == 0)
+    if(node_ptr->getViews() == 0)
     {
         return;
     }
@@ -55,19 +56,23 @@ void List::removeNode(std::shared_ptr<Node> node_ptr)
 
 void List::addLectureToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id)
 {
-    std::shared_ptr<Avl_n> course_node = node_ptr->getAvl()->find(course_id);
+    int* a = new int(0);//ToDo: delete Debug
+    //find the node of the course (with the course tree inside the data)
+    AVLNode<AVLTree<int*>>* course_node = node_ptr->getAvl()->find(course_id,node_ptr->getAvl()->getRoot());
+    //if the node doesnt exist (no course node for the couse)
     if(course_node == NULL)
     {
-        std::shared_ptr<Avl> new_tree = shared_ptr<new Avl()>;
-        new_tree->insert(classes_id,NULL);
-        node_ptr->getAvl()->insert(course_id, new_tree);
+        AVLTree<int*>* new_tree = new AVLTree<int*>();
+        new_tree->insert(classes_id, a);
+        node_ptr->getAvl()->insert(course_id, *new_tree);
     }
     else
     {
-        course_node->getData()->insert(classes_id,NULL);
+        course_node->getData().insert(classes_id,a);
     }
 }
-void std::shared_ptr<Node> List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time)
+
+void List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time)
 {
     std::shared_ptr<Node> iterator = node_ptr;
     int old_time = node_ptr->getViews();
@@ -78,6 +83,7 @@ void std::shared_ptr<Node> List::AddViewsToNode(std::shared_ptr<Node> node_ptr, 
     }
 
     removeLectureFromNode(node_ptr, classes_id,course_id);
+
     int nextViews = 0;
 
     while(iterator->getNext() != NULL)
@@ -90,11 +96,11 @@ void std::shared_ptr<Node> List::AddViewsToNode(std::shared_ptr<Node> node_ptr, 
 
         iterator = iterator->getNext();
     }
-
+    //if needs to create new node
     if(iterator->getNext() == NULL || nextViews > old_time + time)
     {
         //create new views node and set it as next
-        std::shared_ptr<Node> new_view = std::shared_ptr<Node>(new Node(curr_views));
+        std::shared_ptr<Node> new_view = std::shared_ptr<Node>(new Node(old_time + time));
 
         new_view->setNext(iterator->getNext());
         new_view->setPrev(iterator);
@@ -124,17 +130,12 @@ int List::getLectureViews(std::shared_ptr<Node> node_lecture_ptr)
 void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id)
 {
     //find and store the data of course mode
-   std::shared_ptr<Avl_n> course_data_node = node_ptr->getAvl()->find(course_id);
+   AVLNode<AVLTree<int*>>* course_data_node = node_ptr->getAvl()->find(course_id, node_ptr->getAvl()->getRoot());
    //if the course exist in this node
    if(course_data_node != NULL)
    {
         //remove course tree
         node_ptr->getAvl()->remove(course_id);
-        if(node_ptr->getAvl()->isEmpty())
-        {
-               //remove all the node
-               removeNode(node_ptr);
-        }
    }
 }
 
@@ -142,6 +143,28 @@ void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id)
 void List::getMostViewd(int numOfClasses, int* courses, int* classes)
 {
 
+}
+
+//asume SetVisit(bool) will flag visited 
+void List::getMinTree(std::shared_ptr<Avl> min,int numOfClasses, int* courses, int* classes)
+{
+    if(min == null)
+    {
+        return;
+    }
+
+    min.SetVisit(true);
+}
+
+//asume SetVisit(bool) will flag visited 
+void List::getMinTree(std::shared_ptr<Avl> min,int numOfClasses, int* courses, int* classes)
+{
+    if(min == null)
+    {
+        return;
+    }
+    
+    min.SetVisit(true);
 }
 
 

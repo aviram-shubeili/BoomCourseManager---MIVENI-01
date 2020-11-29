@@ -140,32 +140,32 @@ Boom/fast:
 	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/build
 .PHONY : Boom/fast
 
-Avl.o: Avl.cpp.o
+Auxiliaries.o: Auxiliaries.cpp.o
 
-.PHONY : Avl.o
+.PHONY : Auxiliaries.o
 
 # target to build an object file
-Avl.cpp.o:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Avl.cpp.o
-.PHONY : Avl.cpp.o
+Auxiliaries.cpp.o:
+	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Auxiliaries.cpp.o
+.PHONY : Auxiliaries.cpp.o
 
-Avl.i: Avl.cpp.i
+Auxiliaries.i: Auxiliaries.cpp.i
 
-.PHONY : Avl.i
+.PHONY : Auxiliaries.i
 
 # target to preprocess a source file
-Avl.cpp.i:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Avl.cpp.i
-.PHONY : Avl.cpp.i
+Auxiliaries.cpp.i:
+	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Auxiliaries.cpp.i
+.PHONY : Auxiliaries.cpp.i
 
-Avl.s: Avl.cpp.s
+Auxiliaries.s: Auxiliaries.cpp.s
 
-.PHONY : Avl.s
+.PHONY : Auxiliaries.s
 
 # target to generate assembly for a file
-Avl.cpp.s:
-	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Avl.cpp.s
-.PHONY : Avl.cpp.s
+Auxiliaries.cpp.s:
+	$(MAKE) -f CMakeFiles/Boom.dir/build.make CMakeFiles/Boom.dir/Auxiliaries.cpp.s
+.PHONY : Auxiliaries.cpp.s
 
 Course.o: Course.cpp.o
 
@@ -311,9 +311,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Boom"
-	@echo "... Avl.o"
-	@echo "... Avl.i"
-	@echo "... Avl.s"
+	@echo "... Auxiliaries.o"
+	@echo "... Auxiliaries.i"
+	@echo "... Auxiliaries.s"
 	@echo "... Course.o"
 	@echo "... Course.i"
 	@echo "... Course.s"

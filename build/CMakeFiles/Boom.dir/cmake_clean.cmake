@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "Boom"
   "Boom.pdb"
-  "CMakeFiles/Boom.dir/Avl.cpp.o"
+  "CMakeFiles/Boom.dir/Auxiliaries.cpp.o"
   "CMakeFiles/Boom.dir/Course.cpp.o"
   "CMakeFiles/Boom.dir/CoursesManager.cpp.o"
   "CMakeFiles/Boom.dir/List.cpp.o"
