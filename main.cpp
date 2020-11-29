@@ -12,7 +12,7 @@ int main(int argc,char* argv[])
     cout<<"kingg \n";
 
     AVLTree<int> tree;
-    AVLNode<int> node(1,1);
+    AVLNode<int> node(1);
     int one = 1;
     int two = 2;
     int three = 3;

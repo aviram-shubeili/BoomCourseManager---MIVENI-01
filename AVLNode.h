@@ -35,7 +35,7 @@ public:
      *      InvalidInput - if key is invalid
      *      std::bad_alloc() - allocation problem
      */
-    explicit AVLNode<T>(int key, T data);
+    explicit AVLNode<T>(int key, T data = T());
 
     /**
      * Description:
