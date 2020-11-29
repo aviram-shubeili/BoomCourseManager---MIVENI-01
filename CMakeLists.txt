@@ -14,10 +14,10 @@ set(CMAKE_C_FLAGS ${MTM_FLAGS_DEBUG})
 
 add_executable(Boom
         main.cpp
-        CoursesManager.cpp
+        #CoursesManager.cpp
         AVLTree.cpp
         AVLNode.cpp
-        Course.cpp
-        Node.cpp
-        List.cpp
-        Auxiliaries.cpp Auxiliaries.h)
+        #Course.cpp
+       # Node.cpp
+      #  List.cpp
+        Auxiliaries.cpp )

@@ -35,7 +35,7 @@ public:
      *      InvalidInput - if key is invalid
      *      std::bad_alloc() - allocation problem
      */
-    AVLNode<T>(int key, T& data=T());
+    explicit AVLNode<T>(int key, T data);
 
     /**
      * Description:
@@ -66,15 +66,15 @@ public:
      *           Getters And Setters:
      * **********************************************
      */
-    const AVLNode<T>* getFather() const;
+     AVLNode<T>* getFather() ;
 
     void setFather(AVLNode<T>* node);
 
-    const AVLNode<T>* getLeftSon() const;
+     AVLNode<T>* getLeftSon() ;
 
     void setLeftSon(AVLNode<T>* node);
 
-    const AVLNode<T>* getRightSon() const;
+     AVLNode<T>* getRightSon() ;
 
     void setRightSon(AVLNode<T>* node);
 
@@ -86,7 +86,7 @@ public:
      * Exceptions:
      *      none
      */
-    int getHeight(const AVLNode<T> *node) ;
+    int getHeight() { return height; };
 
     void setHeight(int new_height);
 
@@ -121,13 +121,13 @@ public:
  * ************************************************************************************************************
  */
 template<typename T>
-AVLNode<T>::AVLNode(int key, T &data):
+AVLNode<T>::AVLNode(int key, T data):
         key(key),
         data(data),
-        father(nullptr),
-        left_son(nullptr),
-        right_son(nullptr),
-        height(-1) {
+        father(NULL),
+        left_son(NULL),
+        right_son(NULL),
+        height(0) {
 
     if(isInvalid(key)) {
         throw InvalidInput();
@@ -141,7 +141,7 @@ AVLNode<T>::AVLNode(const AVLNode<T> &other):
         father(nullptr),
         left_son(nullptr),
         right_son(nullptr),
-        height(-1) { }
+        height(0) { }
 
 template<typename T>
 AVLNode<T> &AVLNode<T>::operator=(const AVLNode<T> &other) {
@@ -154,13 +154,13 @@ AVLNode<T> &AVLNode<T>::operator=(const AVLNode<T> &other) {
     father = nullptr;
     left_son = nullptr;
     right_son = nullptr;
-    height = -1;
+    height = 0;
 
 }
 
 
 template<typename T>
-const AVLNode<T> *AVLNode<T>::getFather() const {
+ AVLNode<T> *AVLNode<T>::getFather()  {
     return father;
 }
 
@@ -170,7 +170,7 @@ void AVLNode<T>::setFather(AVLNode<T> *node) {
 }
 
 template<typename T>
-const AVLNode<T> *AVLNode<T>::getLeftSon() const {
+ AVLNode<T> *AVLNode<T>::getLeftSon()  {
     return left_son;
 }
 
@@ -180,7 +180,7 @@ void AVLNode<T>::setLeftSon(AVLNode<T> *node) {
 }
 
 template<typename T>
-const AVLNode<T> *AVLNode<T>::getRightSon() const {
+ AVLNode<T> *AVLNode<T>::getRightSon()  {
     return right_son;
 }
 
@@ -197,11 +197,6 @@ T &AVLNode<T>::getData() {
 template<typename T>
 void AVLNode<T>::setData(T& new_data) {
     data = new_data;
-}
-
-template<typename T>
-int AVLNode<T>::getHeight(const AVLNode<T> *node) {
-    return node == NULL ? -1 : node->height;
 }
 
 template<typename T>
@@ -230,16 +225,12 @@ int AVLNode<T>::getKey() const {
     return key;
 }
 
-template<typename T>
-bool AVLNode<T>::operator<(int other_key) {
-    return this->key < other_key;
-
-}
 
 template<typename T>
-bool AVLNode<T>::operator==(int other_key) {
-    return this->key == other_key;
+int getHeight(AVLNode<T> *node)  {
+    return node == NULL ?  -1 : node->getHeight();
 }
+
 
 
 #endif //BOOM_AVLNODE_H
