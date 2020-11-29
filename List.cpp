@@ -72,7 +72,7 @@ void List::addLectureToNode(std::shared_ptr<Node> node_ptr, int classes_id, int 
     }
 }
 
-void List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time)
+std::shared_ptr<Node> List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time)
 {
     std::shared_ptr<Node> iterator = node_ptr;
     int old_time = node_ptr->getViews();
@@ -120,6 +120,8 @@ void List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int co
     {
         max = iterator->getNext();
     }
+
+    return iterator->getNext();
 }
 
 int List::getLectureViews(std::shared_ptr<Node> node_lecture_ptr)

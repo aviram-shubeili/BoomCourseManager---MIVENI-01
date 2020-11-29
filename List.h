@@ -45,7 +45,7 @@ public:
      * Description: will add views to wanted leture in node
      * may throw this exceptions:
      */
-    void AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time);
+    std::shared_ptr<Node> AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time);
     /**
      * Description: returns the mosted viewed courses
      *note: will not throw errors! you need to check if legal before
