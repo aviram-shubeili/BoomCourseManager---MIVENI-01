@@ -20,4 +20,5 @@ add_executable(Boom
         #Course.cpp
        # Node.cpp
       #  List.cpp
-        Auxiliaries.cpp)
+        Auxiliaries.cpp
+        )

@@ -1,10 +1,9 @@
 #ifndef BOOM_AVL_H
 #define BOOM_AVL_H
-#include "Course.h"
 #include "AVLNode.h"
-#include "Auxiliaries.h"
 #include "library.h"
 #include <iostream>
+
 
 
 /*
@@ -500,48 +499,81 @@ void AVLTree<T>::removeNode(std::shared_ptr<AVLNode<T>> v) {
         removeNode(w);
     }
 }
+// TODO: delete this before submitting:
+// *******************************************************************************************************************
+// *******************************************************************************************************************
+// ******************************************* Print Pretty Trees! ***************************************************
+// ******************************************* Print Pretty Trees! ***************************************************
+// ******************************************* Print Pretty Trees! ***************************************************
+// *******************************************************************************************************************
+// *******************************************************************************************************************
+#ifndef BOOM_TRUNK_H
+#define BOOM_TRUNK_H
 
-#include<bits/stdc++.h>
-#define COUNT 10
 
-template< typename T>
-void print2D(std::shared_ptr<AVLNode<T>> root);
-
-// Function to print binary tree in 2D
-// It does reverse inorder traversal
-template< typename T>
-void print2DUtil(std::shared_ptr<AVLNode<T>> root, int space)
+struct Trunk
 {
-    // Base case
-    if (root == NULL)
+    Trunk *prev;
+    std::string str;
+
+    Trunk(Trunk *prev, std::string str)
+    {
+        this->prev = prev;
+        this->str = str;
+    }
+};
+
+
+// Helper function to print branches of the binary tree
+
+// Recursive function to print binary tree
+// It uses inorder traversal
+void showTrunks(Trunk *p);
+template<typename T>
+void printTree(std::shared_ptr<AVLNode<T>> root, Trunk *prev, bool isLeft)
+{
+    if (root == nullptr)
         return;
 
-    // Increase distance between levels
-    space += COUNT;
+    std::string prev_str = "    ";
+    Trunk *trunk = new Trunk(prev, prev_str);
 
-    // Process right child first
-    print2DUtil(root->getRightSon(), space);
+    printTree(root->getRightSon(), trunk, true);
 
-    // Print current node after space
-    // count
-    std::cout<<std::endl;
-    for (int i = COUNT; i < space; i++)
-        std::cout<<" ";
-    std::cout<<root->getKey()<<"\n";
+    if (!prev)
+        trunk->str = "---";
+    else if (isLeft)
+    {
+        trunk->str = ".---";
+        prev_str = "   |";
+    }
+    else
+    {
+        trunk->str = "`---";
+        prev->str = prev_str;
+    }
 
-    // Process left child
-    print2DUtil(root->getLeftSon(), space);
+    showTrunks(trunk);
+    std::cout << root->getKey() << std::endl;
+
+    if (prev)
+        prev->str = prev_str;
+    trunk->str = "   |";
+
+    printTree(root->getLeftSon(), trunk, false);
 }
-
-// Wrapper over print2DUtil()
-template< typename T>
-void print2D(std::shared_ptr<AVLNode<T>> root)
+void showTrunks(Trunk *p)
 {
-    // Pass initial space count as 0
-    print2DUtil(root, 0);
+    if (p == nullptr)
+        return;
+
+    showTrunks(p->prev);
+
+    std::cout << p->str;
 }
 
 
+#endif
 
 
 #endif //BOOM_AVL_H

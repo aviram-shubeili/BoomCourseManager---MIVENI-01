@@ -7,7 +7,6 @@
 
 
 #include "Auxiliaries.h"
-#include "BoomExceptions.h"
 
 /**
  * Assumptions on T:
