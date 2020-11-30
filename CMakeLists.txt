@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+#cmake_minimum_required(VERSION 3.16)
 project(Boom)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -20,4 +20,4 @@ add_executable(Boom
         #Course.cpp
        # Node.cpp
       #  List.cpp
-        Auxiliaries.cpp )
+        Auxiliaries.cpp)
