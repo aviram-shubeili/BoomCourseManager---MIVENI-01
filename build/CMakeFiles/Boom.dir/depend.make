@@ -5,6 +5,7 @@ CMakeFiles/Boom.dir/AVLNode.cpp.o: ../AVLNode.cpp
 CMakeFiles/Boom.dir/AVLNode.cpp.o: ../AVLNode.h
 CMakeFiles/Boom.dir/AVLNode.cpp.o: ../Auxiliaries.h
 CMakeFiles/Boom.dir/AVLNode.cpp.o: ../BoomExceptions.h
+CMakeFiles/Boom.dir/AVLNode.cpp.o: ../library.h
 
 CMakeFiles/Boom.dir/AVLTree.cpp.o: ../AVLNode.h
 CMakeFiles/Boom.dir/AVLTree.cpp.o: ../AVLTree.cpp
@@ -16,6 +17,24 @@ CMakeFiles/Boom.dir/AVLTree.cpp.o: ../library.h
 CMakeFiles/Boom.dir/Auxiliaries.cpp.o: ../Auxiliaries.cpp
 CMakeFiles/Boom.dir/Auxiliaries.cpp.o: ../Auxiliaries.h
 CMakeFiles/Boom.dir/Auxiliaries.cpp.o: ../BoomExceptions.h
+CMakeFiles/Boom.dir/Auxiliaries.cpp.o: ../library.h
+
+CMakeFiles/Boom.dir/List.cpp.o: ../AVLNode.h
+CMakeFiles/Boom.dir/List.cpp.o: ../AVLTree.h
+CMakeFiles/Boom.dir/List.cpp.o: ../Auxiliaries.h
+CMakeFiles/Boom.dir/List.cpp.o: ../BoomExceptions.h
+CMakeFiles/Boom.dir/List.cpp.o: ../List.cpp
+CMakeFiles/Boom.dir/List.cpp.o: ../List.h
+CMakeFiles/Boom.dir/List.cpp.o: ../Node.h
+CMakeFiles/Boom.dir/List.cpp.o: ../library.h
+
+CMakeFiles/Boom.dir/Node.cpp.o: ../AVLNode.h
+CMakeFiles/Boom.dir/Node.cpp.o: ../AVLTree.h
+CMakeFiles/Boom.dir/Node.cpp.o: ../Auxiliaries.h
+CMakeFiles/Boom.dir/Node.cpp.o: ../BoomExceptions.h
+CMakeFiles/Boom.dir/Node.cpp.o: ../Node.cpp
+CMakeFiles/Boom.dir/Node.cpp.o: ../Node.h
+CMakeFiles/Boom.dir/Node.cpp.o: ../library.h
 
 CMakeFiles/Boom.dir/main.cpp.o: ../AVLNode.h
 CMakeFiles/Boom.dir/main.cpp.o: ../AVLTree.h

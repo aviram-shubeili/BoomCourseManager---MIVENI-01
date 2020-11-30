@@ -25,6 +25,11 @@ private:
      * may throw this exceptions:
      */
     static void removeNode(std::shared_ptr<Node> node_ptr);
+
+    void getMinTree(std::shared_ptr<AVLNode<AVLTree<int*>>> min,int& numOfClasses, int* courses, int* classes);
+    void getMinLectures(std::shared_ptr<AVLNode<int*>> min,int& numOfClasses, int* courses, int* classes, int curr_course);
+
+
 public:
     /**
      * Description:
@@ -42,7 +47,7 @@ public:
      */
     static void removeLectureFromNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id);
     /**
-     * Description: will add views to wanted leture in node
+     * Description: will add views to wanted lecture in node
      * may throw this exceptions:
      */
     std::shared_ptr<Node> AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time);
@@ -62,6 +67,8 @@ public:
      * may throw this exceptions:
      */
     static void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id);
+
+    
 
 };
 #endif

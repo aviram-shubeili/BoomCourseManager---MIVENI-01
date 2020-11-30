@@ -12,4 +12,6 @@ class InvalidInput : public BoomExceptions{ };
 
 class NodeAlreadyExists : public BoomExceptions { };
 
+class NodeDoesntExist : public BoomExceptions { };
+
 #endif //BOOM_BOOMEXCEPTIONS_H

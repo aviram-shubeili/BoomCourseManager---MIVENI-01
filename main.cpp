@@ -13,7 +13,7 @@ static void printArry(int a[],int num)
 
 int main(int argc,char* argv[])
 {
-
+    std::shared_ptr<List> list = std::shared_ptr<List>(new List());
     cout<<"kingg \n";
 }
 

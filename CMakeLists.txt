@@ -18,6 +18,6 @@ add_executable(Boom
         AVLTree.cpp
         AVLNode.cpp
         #Course.cpp
-       # Node.cpp
-      #  List.cpp
+        Node.cpp
+        List.cpp
         Auxiliaries.cpp )
