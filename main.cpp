@@ -10,6 +10,14 @@ static void printArry(int a[],int num)
     }
     cout<<"\n";
 }
+static void zero(int a[],int num)
+{
+    for(int i =0;i<num;i++)
+    {
+        a[i] = 0;
+    }
+    cout<<"\n";
+}
 
 int main(int argc,char* argv[])
 {
@@ -41,6 +49,17 @@ int main(int argc,char* argv[])
     list->getMostViewd(5,courses,classes);
     printArry(classes, 5);
     printArry(courses, 5);
+    zero(classes, 5);
+    zero(courses, 5);
+    list->getMostViewd(5,courses,classes);
+    printArry(classes, 5);
+    printArry(courses, 5);
+    zero(classes, 5);
+    zero(courses, 5);
+    list->getMostViewd(4,courses,classes);
+    printArry(classes, 5);
+    printArry(courses, 5);
+    
 
 
     list->printList();
