@@ -32,6 +32,10 @@ iostream
 exception
 -
 
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.cpp
+List.h
+/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
+
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
 Node.h
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/Node.h
@@ -47,10 +51,4 @@ AVLTree.h
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/AVLTree.h
 
 /home/uri.yakar/Mivni/Hw1/BoomCourseManager/library.h
-
-/home/uri.yakar/Mivni/Hw1/BoomCourseManager/main.cpp
-iostream
--
-List.h
-/home/uri.yakar/Mivni/Hw1/BoomCourseManager/List.h
 

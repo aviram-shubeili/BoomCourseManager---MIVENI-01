@@ -26,8 +26,8 @@ private:
      */
     static void removeNode(std::shared_ptr<Node> node_ptr);
 
-    void getMinTree(std::shared_ptr<AVLNode<AVLTree<int*>>> min,int& numOfClasses, int* courses, int* classes);
-    void getMinLectures(std::shared_ptr<AVLNode<int*>> min,int& numOfClasses, int* courses, int* classes, int curr_course);
+    void getMinTree(std::shared_ptr<AVLNode<AVLTree<int*>>> min,int& numOfClasses, int* courses, int* classes, int& counter);
+    void getMinLectures(std::shared_ptr<AVLNode<int*>> min,int& numOfClasses, int* courses, int* classes, int curr_course, int& counter);
 
 
 public:
@@ -41,6 +41,11 @@ public:
      * may throw this exceptions:
      */
     ~List();
+    /**
+     * Description: will add lecture to the wated node
+     * may throw this exceptions:
+     */
+    std::shared_ptr<Node> addNewLecture(int classes_id, int course_id);
     /**
      * Description: will remove the lecture from the node (from the course tree)
      * may throw this exceptions:
@@ -68,7 +73,23 @@ public:
      */
     static void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id);
 
-    
+    //for Debug 
+    void printList()
+    {
+        std::shared_ptr<Node> node = head;
+        while(node)
+        {
+            std::cout<<"the views: "<<node->getViews()<<", ";
+            node = node -> getNext();
+
+        }
+        std::cout<<"\n";
+    }
+
+    void printMax()
+    {
+            std::cout<<"max views: "<<max->getViews()<<"\n";
+    }
 
 };
 #endif
