@@ -78,7 +78,7 @@ void List::addLectureToNode(std::shared_ptr<Node> node_ptr, int classes_id, int 
     }
 }
 
-std::shared_ptr<Node> List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time)
+std::shared_ptr<Node> List::addViewsToLecture(std::shared_ptr<Node> node_ptr, int class_id, int course_id, int time)
 {
     std::shared_ptr<Node> iterator = node_ptr;
     int old_time = node_ptr->getViews();
@@ -88,7 +88,6 @@ std::shared_ptr<Node> List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int c
         iterator = node_ptr->getPrev();
     }
 
-    removeLectureFromNode(node_ptr, classes_id,course_id);
 
     int nextViews = 0;
 
@@ -121,13 +120,15 @@ std::shared_ptr<Node> List::AddViewsToNode(std::shared_ptr<Node> node_ptr, int c
     }
 
     //insert lecture to views
-    addLectureToNode(iterator->getNext(),classes_id,course_id);
+    addLectureToNode(iterator->getNext(), class_id, course_id);
     
     //check if needs to move max
     if(max->getViews() < iterator->getNext()->getViews())
     {
         max = iterator->getNext();
     }
+    // after reallocating is done! delete the old lecture node
+    removeLectureFromNode(node_ptr, class_id, course_id);
 
     return iterator->getNext();
 }
@@ -136,18 +137,18 @@ int List::getLectureViews(std::shared_ptr<Node> node_lecture_ptr)
 {
     return node_lecture_ptr->getViews();
 }
-
-void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id)
-{
-    //find and store the data of course mode
-   std::shared_ptr<AVLNode<AVLTree<int*>>> course_data_node = node_ptr->getAvl()->find(course_id, node_ptr->getAvl()->getRoot());
-   //if the course exist in this node
-   if(course_data_node != NULL)
-   {
-        //remove course tree
-        node_ptr->getAvl()->remove(course_id);
-   }
-}
+//
+//void List::removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id)
+//{
+//    //find and store the data of course mode
+//   std::shared_ptr<AVLNode<AVLTree<int*>>> course_data_node = node_ptr->getAvl()->find(course_id, node_ptr->getAvl()->getRoot());
+//   //if the course exist in this node
+//   if(course_data_node != NULL)
+//   {
+//        //remove course tree
+//        node_ptr->getAvl()->remove(course_id);
+//   }
+//}
 
 void List::getMostViewd(int numOfClasses, int* courses, int* classes)
 {

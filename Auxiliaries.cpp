@@ -4,10 +4,14 @@
 
 #include "Auxiliaries.h"
 
-bool isInvalid(int key) {
+bool isInvalidCourseID(int key) {
     return key <= 0;
 }
 
 int max(int a, int b) {
     return a > b ? a : b;
+}
+
+bool isInvalidClassID(int key) {
+    return key < 0;
 }

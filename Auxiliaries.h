@@ -4,14 +4,20 @@
 
 #include <memory>
 #include "BoomExceptions.h"
+#include "library.h"
 #include <cassert>
 #include <iostream>
+
+
+
 /**
  * return true if key <= 0, false otherwise
  * @param key
  * @return
+ // TODO second invalid for class id
  */
-bool isInvalid(int key);
+bool isInvalidCourseID(int key);
+bool isInvalidClassID(int key);
 
 
 int max(int a,int b);

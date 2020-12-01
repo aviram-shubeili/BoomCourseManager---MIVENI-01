@@ -88,7 +88,7 @@ gcc version 5.5.0 (GCC)
 COMPILER_PATH=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/
 LIBRARY_PATH=/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../:/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_7a6f5' '-mtune=generic' '-march=x86-64'
- /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2 -plugin /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so -plugin-opt=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJY9uJQ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_7a6f5 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../.. CMakeFiles/cmTC_7a6f5.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtend.o /lib/../lib64/crtn.o
+ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2 -plugin /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so -plugin-opt=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJY9uJQ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -num_classes elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_7a6f5 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../.. CMakeFiles/cmTC_7a6f5.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtend.o /lib/../lib64/crtn.o
 gmake[1]: Leaving directory `/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/CMakeTmp'
 
 
@@ -158,7 +158,7 @@ Parsed C implicit link information from above output:
   ignore line: [COMPILER_PATH=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../:/lib/:/usr/lib/]
   ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_7a6f5' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2 -plugin /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so -plugin-opt=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJY9uJQ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_7a6f5 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../.. CMakeFiles/cmTC_7a6f5.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtend.o /lib/../lib64/crtn.o]
+  link line: [ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2 -plugin /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so -plugin-opt=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJY9uJQ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -num_classes elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_7a6f5 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../.. CMakeFiles/cmTC_7a6f5.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtend.o /lib/../lib64/crtn.o]
     arg [/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so] ==> ignore
@@ -170,7 +170,7 @@ Parsed C implicit link information from above output:
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
-    arg [-m] ==> ignore
+    arg [-num_classes] ==> ignore
     arg [elf_x86_64] ==> ignore
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
@@ -272,7 +272,7 @@ gcc version 5.5.0 (GCC)
 COMPILER_PATH=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/
 LIBRARY_PATH=/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../:/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_67195' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2 -plugin /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so -plugin-opt=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccaDUE7r.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_67195 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../.. CMakeFiles/cmTC_67195.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtend.o /lib/../lib64/crtn.o
+ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2 -plugin /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so -plugin-opt=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccaDUE7r.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -num_classes elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_67195 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../.. CMakeFiles/cmTC_67195.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtend.o /lib/../lib64/crtn.o
 gmake[1]: Leaving directory `/home/uri.yakar/Mivni/Hw1/BoomCourseManager/build/CMakeFiles/CMakeTmp'
 
 
@@ -351,7 +351,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [COMPILER_PATH=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../:/lib/:/usr/lib/]
   ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_67195' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2 -plugin /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so -plugin-opt=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccaDUE7r.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_67195 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../.. CMakeFiles/cmTC_67195.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtend.o /lib/../lib64/crtn.o]
+  link line: [ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2 -plugin /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so -plugin-opt=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccaDUE7r.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -num_classes elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_67195 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtbegin.o -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../.. CMakeFiles/cmTC_67195.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/crtend.o /lib/../lib64/crtn.o]
     arg [/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/5.5.0/liblto_plugin.so] ==> ignore
@@ -363,7 +363,7 @@ Parsed CXX implicit link information from above output:
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
-    arg [-m] ==> ignore
+    arg [-num_classes] ==> ignore
     arg [elf_x86_64] ==> ignore
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
@@ -379,7 +379,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../..] ==> dir [/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../..]
     arg [CMakeFiles/cmTC_67195.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
-    arg [-lm] ==> lib [m]
+    arg [-lm] ==> lib [num_classes]
     arg [-lgcc_s] ==> lib [gcc_s]
     arg [-lgcc] ==> lib [gcc]
     arg [-lc] ==> lib [c]
@@ -392,7 +392,7 @@ Parsed CXX implicit link information from above output:
   collapse library dir [/lib/../lib64] ==> [/lib64]
   collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
   collapse library dir [/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/../../..] ==> [/usr/local/lib]
-  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit libs: [stdc++;num_classes;gcc_s;gcc;c;gcc_s;gcc]
   implicit dirs: [/usr/local/lib/gcc/x86_64-unknown-linux-gnu/5.5.0;/usr/local/lib64;/lib64;/usr/lib64;/usr/local/lib]
   implicit fwks: []
 

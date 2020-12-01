@@ -1,4 +1,4 @@
-#include "AVLTree.h"
+#include "CoursesManager.h"
 #include <vector>
 #include <ostream>
 #include <random>
@@ -20,7 +20,7 @@ int main(){
     tree.insert(2,2);
     tree.insert(1,1);
     tree.printTree();
-    printTree(tree.getRoot(), nullptr,false);
+//    printTree(tree.getRoot(), nullptr,false);
     tree.clearTree();
     tree.printTree();
 
@@ -63,7 +63,7 @@ int main(){
     tree.insert(7,7);
     tree.insert(1,1);
     tree.insert(2,2);
-    printTree(tree.getRoot(), nullptr,false);
+   // printTree(tree.getRoot(), nullptr,false);
     tree.printTree();
     tree.clearTree();
 

@@ -1,7 +1,6 @@
 #ifndef BOOM_AVL_H
 #define BOOM_AVL_H
 #include "AVLNode.h"
-#include "library.h"
 #include <iostream>
 
 
@@ -100,7 +99,7 @@ public:
     /**
      * Default c'tor - creates an empty AVL Tree.
      */
-    AVLTree<T>();
+     AVLTree<T>();
 
 
     // TODO: do i need those???
@@ -157,7 +156,6 @@ public:
   *      none
   * Exceptions:
   *     std::bad_alloc
-  *     Invalid Input - if key is invalid
   *     NodeAlreadyExists - if key already exists in tree
   */
 
@@ -172,7 +170,7 @@ public:
   *     Invalid Input - if key is invalid
   *     NodeDoesntExist - if key doesnt exists in tree
   */
-    StatusType remove(int key);
+    void remove(int key);
 
 
     /**
@@ -181,9 +179,7 @@ public:
   * T Assumptions:
   *      none
   * Exceptions:
-  *     std::bad_alloc
-  *     Invalid Input - if key is invalid
-  *     NodeAlreadyExists - if key already exists in tree
+
   */
     std::shared_ptr<AVLNode<T>> find(int key, std::shared_ptr<AVLNode<T>> node);
     /**
@@ -192,11 +188,9 @@ public:
   * T Assumptions:
   *      none
   * Exceptions:
-  *     std::bad_alloc
-  *     Invalid Input - if key is invalid
-  *     NodeAlreadyExists - if key already exists in tree
+
   */
-    std::shared_ptr<AVLNode<T>> find(int key)  { find(key, root); }
+    std::shared_ptr<AVLNode<T>> find(int key)  { return find(key, root); }
 
     /**
      * pretty printing with Headline (uses inorder)
@@ -336,10 +330,7 @@ std::shared_ptr<AVLNode<T>> AVLTree<T>::find(int key, std::shared_ptr<AVLNode<T>
 
 template<typename T>
 void AVLTree<T>::insert(int key, std::shared_ptr<T> data) {
-    // invalid key
-    if(isInvalid(key)) {
-        throw InvalidInput();
-    }
+
     // node with same key already in the tree
     if(root != nullptr and find(key,root) != NULL) {
         throw NodeAlreadyExists();
@@ -468,11 +459,8 @@ void AVLTree<T>::printTree() {
 }
 
 template<typename T>
-StatusType AVLTree<T>::remove(int key) {
-    // invalid key
-    if(isInvalid(key)) {
-        throw InvalidInput();
-    }
+void AVLTree<T>::remove(int key) {
+
     std::shared_ptr<AVLNode<T>> v = find(key,root);
 
     // node doesnt exist in the tree
@@ -481,8 +469,6 @@ StatusType AVLTree<T>::remove(int key) {
     }
 
     removeNode(v);
-    // todo: throw FAIL?
-    return SUCCESS;
 }
 
 template<typename T>
@@ -571,7 +557,7 @@ struct Trunk
     }
 };
 
-
+/*
 // Helper function to print branches of the binary tree
 
 // Recursive function to print binary tree
@@ -620,7 +606,7 @@ void showTrunks(Trunk *p)
     std::cout << p->str;
 }
 
-
+*/
 #endif
 
 

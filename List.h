@@ -1,7 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 #include "Node.h"
-#include <assert.h>
+#include <cassert>
 #include <iostream>
 
 /**
@@ -55,7 +55,7 @@ public:
      * Description: will add views to wanted lecture in node
      * may throw this exceptions:
      */
-    std::shared_ptr<Node> AddViewsToNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id, int time);
+    std::shared_ptr<Node> addViewsToLecture(std::shared_ptr<Node> node_ptr, int class_id, int course_id, int time);
     /**
      * Description: returns the mosted viewed courses
      *note: will not throw errors! you need to check if legal before
@@ -67,11 +67,11 @@ public:
      * may throw this exceptions:
      */
     int getLectureViews(std::shared_ptr<Node> node_lecture_ptr);
-    /**
-     * Description: will remove the course from the node - will remove node if it is empty
-     * may throw this exceptions:
-     */
-    static void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id);
+//    /**
+//     * Description: will remove the course from the node - will remove node if it is empty
+//     * may throw this exceptions:
+//     */
+//    static void removeCourseFromNode(std::shared_ptr<Node> node_ptr, int course_id);
 
     //for Debug 
     void printList()

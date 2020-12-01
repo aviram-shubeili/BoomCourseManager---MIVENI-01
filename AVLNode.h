@@ -1,7 +1,3 @@
-//
-// Created by avira on 29/11/2020.
-//
-
 #ifndef BOOM_AVLNODE_H
 #define BOOM_AVLNODE_H
 
@@ -35,7 +31,6 @@ public:
      * T Assumptions:
      *      Copy constructor
      * Exceptions:
-     *      InvalidInput - if key is invalid
      *      std::bad_alloc() - allocation problem
      */
     explicit AVLNode<T>(int key, std::shared_ptr<T> data);
@@ -230,9 +225,6 @@ AVLNode<T>::AVLNode(int key, std::shared_ptr<T> data) :
         left_son(nullptr),
         height(0)
 {
-    if(isInvalid(key)) {
-        throw InvalidInput();
-    }
 }
 
 
