@@ -13,7 +13,7 @@ set(CMAKE_C_FLAGS ${MTM_FLAGS_DEBUG})
 
 
 add_executable(Boom
-        main.cpp
+        AVL_main.cpp
         CoursesManager.cpp
         AVLTree.cpp
         AVLNode.cpp
