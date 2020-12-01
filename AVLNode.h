@@ -1,22 +1,10 @@
-//
-// Created by avira on 29/11/2020.
-//
-
 #ifndef BOOM_AVLNODE_H
 #define BOOM_AVLNODE_H
 
 
 #include "Auxiliaries.h"
 
-/**
- * Assumptions on T:
- *      default constructor
- *      copy constructor
- *      assignment operator
- *      operator <
- *
- * @tparam T
- */
+
 template< typename T>
 class AVLNode {
 private:
@@ -46,18 +34,16 @@ public:
      *      Copy constructor.
      * Exceptions:
      *      std::bad_alloc() - allocation problem (thrown from T copy ctor)
-     *      // todo fix?
+     *      todo: do i need this? or just assignment op is good
      */
     AVLNode<T>(const AVLNode<T>& other);
 
     /**
      * Description:
      *       Assignment Operator - doesnt change place in tree
-     * T Assumptions:
-     *      Assignment Operator - todo: make sure it doesnt overwrite before allocation!
      *
      * Exceptions:
-     *      std::bad_alloc() - allocation problem (thrown from T Assignment operator)
+     *      none
      */
     AVLNode<T>& operator=(const AVLNode<T>& other);
 
@@ -81,42 +67,26 @@ public:
 
     void setRightSon(std::shared_ptr<AVLNode<T>> node);
 
-    /**
-     * Description:
-     *     return height of node (assume sons of node is height correct).
-     * T Assumptions:
-     *      none
-     * Exceptions:
-     *      none
-     */
     int getHeight() { return height; };
 
     void setHeight(int new_height);
 
-    // todo: should this return T& ? T?  or T*? or maybe shared_ptr??
     std::shared_ptr<T> getData();
 
-    /**
-     * Description:
-     *       Data setter
-     * T Assumptions:
-     *      Assignment Operator - todo: make sure it doesnt overwrite before allocation!
-     *
-     * Exceptions:
-     *      std::bad_alloc() - allocation problem (thrown from T Assignment operator)
-     */
     void setData(std::shared_ptr<T> new_data);
+
+    int getKey() const;
+    // re-setting key is not allowed - only get.
 
     /**
      * Compare keys function.
      */
-    int getKey() const;
     bool operator<( std::shared_ptr<AVLNode<T>> other);
     bool operator==( std::shared_ptr<AVLNode<T>> other);
 
 
 };
-/*
+
 /*
  * ************************************************************************************************************
  * ************************************************************************************************************
@@ -139,7 +109,6 @@ AVLNode<T> &AVLNode<T>::operator=(const AVLNode<T> &other) {
     if(this == &other) {
         return *this;
     }
-    // todo: in case of allocation problem expect T to throw allocation error and do not touch this->data.
     data = other.data;
     key = other.key;
     return *this;
@@ -228,18 +197,25 @@ AVLNode<T>::AVLNode(int key, std::shared_ptr<T> data) :
 }
 
 
+// This will return -1 if node given is null (according to assumption that leaf height is 0)
 template<typename T>
 int getHeight(std::shared_ptr<AVLNode<T>> node)  {
     return node == NULL ?  -1 : node->getHeight();
 }
 
 
+/**
+ * assuming son has a father, return true if son is his left son, false otherwise
+ */
 template<typename T>
 static bool isLeftSon(std::shared_ptr<AVLNode<T>> son) {
     assert(son->getFather() != NULL);
     return (son->getFather())->getLeftSon() == son;
 }
 
+/**
+ * return number of sons (0,1,2)
+ */
 template<typename T>
 static int getNumSons(std::shared_ptr<AVLNode<T>> node) {
     int sum = 0;

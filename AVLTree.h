@@ -69,18 +69,32 @@ private:
     bool isRoot(std::shared_ptr<AVLNode<T>> node) const;
 
     /**
-  * Description:
-  *    inserts given node to tree and keep it balanced.
-  * T Assumptions:
-  *      none
-  * Exceptions:
-     *
-  */
-
+    * Description:
+    *    inserts given node to tree and keep it balanced.
+    * T Assumptions:
+    *      none
+    * Exceptions:
+    *
+    */
     void insert(std::shared_ptr<AVLNode<T>> new_node, std::shared_ptr<AVLNode<T>> current_root);
-
+    /**
+    * Description:
+    *    given a root to subtree - this will perform rolls and balance the tree
+    * T Assumptions:
+    *      none
+    * Exceptions:
+    *
+    */
     std::shared_ptr<AVLNode<T>> balanceTree(std::shared_ptr<AVLNode<T>> current_root);
 
+    /**
+    * Description:
+    *    inorder on tree
+    * T Assumptions:
+    *      none
+    * Exceptions:
+    *       none
+    */
     void inOrder(std::shared_ptr<AVLNode<T>> root);
 public:
     /**
@@ -93,7 +107,14 @@ public:
     //AVLTree<T>(const AVLTree<T>& other);
 //    AVLTree<T>& operator=(const AVLTree<T>& other);
 
-
+    /**
+    * Description:
+    *    public function to clear the tree
+    * T Assumptions:
+    *      none
+    * Exceptions:
+    *       none
+    */
     void clearTree() { clearTree(root); }
 
     /**
@@ -113,6 +134,22 @@ public:
     std::shared_ptr<AVLNode<T>> getRoot() ;
 
 
+// made for debugging when all we care is the keys
+#ifndef NDBUG
+    /**
+* Description:
+*    create a Node containing NULL data and insert it to the tree
+* T Assumptions:
+*      none
+* Exceptions:
+*     std::bad_alloc
+*     Invalid Input - if key is invalid
+*     NodeAlreadyExists - if key already exists in tree
+*/
+
+    void insert(int key, int data) { insert(key, nullptr); }
+#endif
+
     /**
   * Description:
   *    create a Node containing data and key and insert it to the tree
@@ -124,11 +161,7 @@ public:
   *     NodeAlreadyExists - if key already exists in tree
   */
 
-#ifndef NDBUG
-    void insert(int key, int data) { insert(key, nullptr); }
-#endif
     void insert(int key, std::shared_ptr<T> data);
-// TODO: another insert for irevlevant data.
 
     /**
   * Description:
@@ -143,16 +176,31 @@ public:
 
 
     /**
-     * TODO: return value??
-     * @param key
-     * @return
-     */
+  * Description:
+  *    search for the key node inside subtree node
+  * T Assumptions:
+  *      none
+  * Exceptions:
+  *     std::bad_alloc
+  *     Invalid Input - if key is invalid
+  *     NodeAlreadyExists - if key already exists in tree
+  */
     std::shared_ptr<AVLNode<T>> find(int key, std::shared_ptr<AVLNode<T>> node);
-    // TODO static find
+    /**
+  * Description:
+  *    search for the key node inside the whole tree
+  * T Assumptions:
+  *      none
+  * Exceptions:
+  *     std::bad_alloc
+  *     Invalid Input - if key is invalid
+  *     NodeAlreadyExists - if key already exists in tree
+  */
+    std::shared_ptr<AVLNode<T>> find(int key)  { find(key, root); }
 
-
-    // TODO: do i need this?
-
+    /**
+     * pretty printing with Headline (uses inorder)
+     */
     void printTree();
 
 };
