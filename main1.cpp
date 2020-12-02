@@ -28,11 +28,11 @@ typedef enum {
     NONE_CMD = -2,
     COMMENT_CMD = -1,
     INIT_CMD = 0,
-	ADDCOURSE_CMD = 1,
-	REMOVECOURSE_CMD = 2,
-	WATCHCLASS_CMD = 3,
-	TIMEVIEWED_CMD = 4,
-	GETMOSTVIEWEDCLASSES_CMD = 5,
+    ADDCOURSE_CMD = 1,
+    REMOVECOURSE_CMD = 2,
+    WATCHCLASS_CMD = 3,
+    TIMEVIEWED_CMD = 4,
+    GETMOSTVIEWEDCLASSES_CMD = 5,
     QUIT_CMD = 6
 } commandType;
 
@@ -138,7 +138,7 @@ static errorType parser(const char* const command) {
     errorType rtn_val = error;
 
     commandType command_val = CheckCommand(command, &command_args);
-	
+
     switch (command_val) {
 
         case (INIT_CMD):
@@ -212,7 +212,7 @@ static errorType OnAddCourse(void* DS, const char* const command) {
 static errorType OnRemoveCourse(void* DS, const char* const command) {
     int courseID;
     ValidateRead(sscanf(command, "%d", &courseID), 1, "%s failed.\n", commandStr[REMOVECOURSE_CMD]);
-	StatusType res = RemoveCourse(DS, courseID);
+    StatusType res = RemoveCourse(DS, courseID);
 
     if (res != SUCCESS) {
         printf("%s: %s\n", commandStr[REMOVECOURSE_CMD], ReturnValToStr(res));
@@ -238,7 +238,7 @@ static errorType OnWatchClass(void* DS, const char* const command) {
 }
 
 static errorType OnTimeViewed(void* DS, const char* const command) {
-	int courseID, classID, timeViewed;
+    int courseID, classID, timeViewed;
     ValidateRead(sscanf(command, "%d %d", &courseID, &classID), 2, "%s failed.\n", commandStr[TIMEVIEWED_CMD]);
     StatusType res = TimeViewed(DS, courseID, classID, &timeViewed);
 
@@ -255,30 +255,30 @@ static errorType OnGetMostViewedClasses(void* DS, const char* const command) {
     int numOfClasses;
     int *courses, *classes;
 
-	ValidateRead(sscanf(command, "%d", &numOfClasses), 1, "%s failed.\n", commandStr[GETMOSTVIEWEDCLASSES_CMD]);
-	if (numOfClasses > 0) {
-		courses = (int *)malloc(numOfClasses * sizeof(int));
-		classes = (int *)malloc(numOfClasses * sizeof(int));
-	}
+    ValidateRead(sscanf(command, "%d", &numOfClasses), 1, "%s failed.\n", commandStr[GETMOSTVIEWEDCLASSES_CMD]);
+    if (numOfClasses > 0) {
+        courses = (int *)malloc(numOfClasses * sizeof(int));
+        classes = (int *)malloc(numOfClasses * sizeof(int));
+    }
 
-	StatusType res;
-	if (courses != NULL && classes != NULL) {
-		res = GetMostViewedClasses(DS, numOfClasses, courses, classes);
-	}
-	else {
-		res = ALLOCATION_ERROR;
-	}
+    StatusType res;
+    if (courses != NULL && classes != NULL) {
+        res = GetMostViewedClasses(DS, numOfClasses, courses, classes);
+    }
+    else {
+        res = ALLOCATION_ERROR;
+    }
 
     if (res != SUCCESS) {
         printf("%s: %s\n", commandStr[GETMOSTVIEWEDCLASSES_CMD], ReturnValToStr(res));
-		if (courses != NULL) free(courses);
-		if (classes != NULL) free(classes);
+        if (courses != NULL) free(courses);
+        if (classes != NULL) free(classes);
         return error_free;
     }
 
     printf("%s: %s\n", commandStr[GETMOSTVIEWEDCLASSES_CMD], ReturnValToStr(res));
 
-	printf("Course\t|\tClass\n");
+    printf("Course\t|\tClass\n");
 
     for (int i = 0; i < numOfClasses; i++)
     {
@@ -287,8 +287,8 @@ static errorType OnGetMostViewedClasses(void* DS, const char* const command) {
 
     printf("--End of most viewed classes--\n");
 
-	if (courses != NULL) free(courses);
-	if (classes != NULL) free(classes);
+    if (courses != NULL) free(courses);
+    if (classes != NULL) free(classes);
 
     return error_free;
 }
