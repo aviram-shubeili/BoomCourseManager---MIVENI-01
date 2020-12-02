@@ -118,7 +118,7 @@ public:
 }
 
 };
-/*
+
 /*
  * ************************************************************************************************************
  * ************************************************************************************************************
@@ -145,6 +145,7 @@ AVLNode<T> &AVLNode<T>::operator=(const AVLNode<T> &other) {
     // todo: in case of allocation problem expect T to throw allocation error and do not touch this->data.
     data = other.data;
     key = other.key;
+   // height = other.height;
     return *this;
 }
 

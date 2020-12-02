@@ -5,7 +5,7 @@
 class CoursesManager {
     std::shared_ptr<AVLTree<CourseNode>> course_tree;
     std::shared_ptr<List> views_list;
-    unsigned int total_num_classes;
+    int total_num_classes;
 public:
 
     CoursesManager();

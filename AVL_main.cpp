@@ -1,12 +1,20 @@
-#include "CoursesManager.h"
+/*
+ * testAVLTree.cpp
+ *
+ *  Created on: 19 ���� 2013
+ *      Author: shirel
+ */
+
+#include "AVLTree.h"
 #include <vector>
 #include <ostream>
 #include <random>
 #include <chrono>
 #include <algorithm>
 
+
 int main(){
-  AVLTree<int> tree;
+    AVLTree<int> tree;
 
     //Specific Cases
 
@@ -19,30 +27,28 @@ int main(){
     tree.insert(3,3);
     tree.insert(2,2);
     tree.insert(1,1);
-    tree.printTree();
-//    printTree(tree.getRoot(), nullptr,false);
+    tree.detailedPrint();
     tree.clearTree();
-    tree.printTree();
 
     //basic LR root change
     tree.insert(3,3);
     tree.insert(1,1);
     tree.insert(2,2);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //basic RR root change
     tree.insert(1,1);
     tree.insert(2,2);
     tree.insert(3,3);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //basic RL root change
     tree.insert(1,1);
     tree.insert(3,3);
     tree.insert(2,2);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //basic LR not root change
@@ -63,8 +69,7 @@ int main(){
     tree.insert(7,7);
     tree.insert(1,1);
     tree.insert(2,2);
-   // printTree(tree.getRoot(), nullptr,false);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //basic LL not root change
@@ -85,7 +90,7 @@ int main(){
     tree.insert(7,7);
     tree.insert(2,2);
     tree.insert(1,1);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //basic RR not root change
@@ -100,7 +105,7 @@ int main(){
     tree.insert(1,1);
     tree.insert(2,2);
     tree.insert(3,3);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //basic RL not root change
@@ -115,7 +120,7 @@ int main(){
     tree.insert(1,1);
     tree.insert(3,3);
     tree.insert(2,2);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //root deletion no roll successor is a neighbour
@@ -130,7 +135,7 @@ int main(){
     tree.insert(2,2);
     tree.insert(6,6);
     tree.remove(4);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //root deletion no roll successor is not a neighbour
@@ -149,7 +154,7 @@ int main(){
     tree.insert(8,8);
     tree.insert(6,6);
     tree.remove(4);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //node deletion no roll successor is a neighbour case7
@@ -170,7 +175,7 @@ int main(){
     tree.insert(5,5);
     tree.insert(1,1);
     tree.remove(3);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //node deletion no roll successor is not a neighbour case8
@@ -199,7 +204,7 @@ int main(){
     tree.insert(14,14);
     tree.insert(6,6);
     tree.remove(3);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //node deletion causing LR case9
@@ -218,7 +223,7 @@ int main(){
     tree.insert(9,9);
     tree.insert(3,3);
     tree.remove(9);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //node deletion causing LL case10
@@ -237,7 +242,7 @@ int main(){
     tree.insert(9,9);
     tree.insert(1,1);
     tree.remove(9);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //node deletion causing RR case11
@@ -256,7 +261,7 @@ int main(){
     tree.insert(9,9);
     tree.insert(10,10);
     tree.remove(1);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //node deletion causing RL case12
@@ -275,7 +280,7 @@ int main(){
     tree.insert(14,14);
     tree.insert(10,10);
     tree.remove(1);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //double rotations RL and RR case 13
@@ -304,7 +309,7 @@ int main(){
     tree.insert(21,21);
     tree.insert(23,23);
     tree.remove(1);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //double rotations RR and RR case 14
@@ -333,7 +338,7 @@ int main(){
     tree.insert(21,21);
     tree.insert(23,23);
     tree.remove(1);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //double rotations RL and LL case 15
@@ -363,7 +368,7 @@ int main(){
     tree.insert(18,18);
     tree.insert(6,6);
     tree.remove(21);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //double rotations LR and LL case 16
@@ -391,17 +396,9 @@ int main(){
     tree.insert(12,12);
     tree.insert(21,21);
     tree.insert(6,6);
-    std::shared_ptr<AVLNode<int>> test1 = tree.find(17, tree.getRoot());
-    std::shared_ptr<AVLNode<int>> test2 = tree.find(9, tree.getRoot());
-    std::shared_ptr<AVLNode<int>> test3 = tree.find(6, tree.getRoot());
-    std::shared_ptr<AVLNode<int>> test4 = tree.getRoot();
     tree.remove(17);
-    std::cout << test1.use_count() << std::endl;
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
-    std::cout << test2.use_count() << std::endl;
-    std::cout << test3.use_count() << std::endl;
-    std::cout << test4.use_count() << std::endl;
 
     //delete node cause LR
     /*correct output
@@ -416,7 +413,7 @@ int main(){
     tree.insert(2,2);
     tree.insert(4,4);
     tree.remove(5);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     //delete node cause LR
@@ -429,29 +426,29 @@ int main(){
     tree.insert(6,6);
     tree.insert(2,2);
     tree.remove(5);
-    tree.printTree();
+    tree.detailedPrint();
     tree.clearTree();
 
     std::vector<int> vector;
     for (int i=1; i<=100; i++) vector.push_back(i);
 
     //Randomly insert and removes nodes
-    for (int k = 1; k < 20; ++k) {
+    for (int k = 0; k < 20; ++k) {
         unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
         shuffle (vector.begin(), vector.end(), std::default_random_engine(seed));
         for (std::vector<int>::iterator it = vector.begin() ; it != vector.end(); ++it){
             tree.insert(*it,*it);
 
         }
-        tree.printTree();
+        tree.detailedPrint();
         shuffle (vector.begin(), vector.end(), std::default_random_engine(seed));
         for (std::vector<int>::iterator it = vector.begin() ; it != vector.end(); ++it){
             tree.remove(*it);
-            tree.printTree();
+            tree.detailedPrint();
 
         }
         tree.clearTree();
-        tree.printTree();
+        tree.detailedPrint();
         std::cout << '\n';
     }
 

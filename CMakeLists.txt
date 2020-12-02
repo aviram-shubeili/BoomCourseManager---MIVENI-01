@@ -10,7 +10,7 @@ set(MTM_FLAGS_DEBUG "-std=c++11 -Wall -Werror -pedantic-errors")
 set(MTM_FLAGS_RELEASE "${MTM_FLAGS_DEBUG} -DNDEBUG")
 
 set(CMAKE_C_FLAGS ${MTM_FLAGS_DEBUG})
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -DNDEBUG -Wall")
 
 add_executable(CourseManager
         main1.cpp

@@ -8,7 +8,15 @@ List::List()
 
 List::~List()
 {
-    max = head = NULL;
+    std::shared_ptr<Node> iterator = head;
+    while(iterator) {
+       if(iterator->getPrev()) {
+           iterator->getPrev()->setNext(nullptr);
+           iterator->setPrev(nullptr);
+       }
+           iterator = iterator->getNext();
+    }
+    head = max = nullptr;
 }
 
 void List::removeLectureFromNode(std::shared_ptr<Node> node_ptr, int classes_id, int course_id)

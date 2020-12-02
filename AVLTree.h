@@ -132,12 +132,36 @@ public:
      */
     std::shared_ptr<AVLNode<T>> getRoot() ;
 
+    void inOrderPTRS(std::shared_ptr<AVLNode<T>> subroot) {
+        if(subroot == nullptr) {
+            return;
+        }
+        inOrderPTRS(subroot->getLeftSon());
+        std::cout << subroot.use_count() << "  ";
+        inOrderPTRS(subroot->getRightSon());
+    }
+
+    void detailedPrint(std::shared_ptr<AVLNode<int>> root) {
+        if(root == nullptr) {
+            return;
+        }
+        detailedPrint(root->getLeftSon());
+        std::cout << root->getKey() << " BF: " << getBF(root)
+        << " Height: " << root->getHeight() << std::endl;
+        detailedPrint(root->getRightSon());
+    }
+
+    void detailedPrint() {
+        std::cout << "case:\n";
+        detailedPrint(root);
+      //  std::cout << "\n";
+    }
 
 // made for debugging when all we care is the keys
 #ifndef NDBUG
     /**
 * Description:
-*    create a Node containing NULL data and insert it to the tree
+*    create a Node containing nullptr data and insert it to the tree
 * T Assumptions:
 *      none
 * Exceptions:
@@ -203,7 +227,7 @@ public:
 
 template<typename T>
 void AVLTree<T>::updateHeight(std::shared_ptr<AVLNode<T>> node) {
-    if(node == NULL) {
+    if(node == nullptr) {
         return;
     }
     node->setHeight(1 + max(getHeight(node->getLeftSon()), getHeight(node->getRightSon())));
@@ -211,7 +235,7 @@ void AVLTree<T>::updateHeight(std::shared_ptr<AVLNode<T>> node) {
 
 template<typename T>
 int AVLTree<T>::getBF(std::shared_ptr<AVLNode<T>> node) {
-    if(node == NULL) {
+    if(node == nullptr) {
         return 0;
     }
     // h(l) - h(r)
@@ -260,7 +284,7 @@ std::shared_ptr<AVLNode<T>> AVLTree<T>::RR(std::shared_ptr<AVLNode<T>> B) {
 
 template<typename T>
 void AVLTree<T>::clearTree(std::shared_ptr<AVLNode<T>> node) {
-    if(node == NULL) {
+    if(node == nullptr) {
         return;
     }
     // post order deleting
@@ -273,23 +297,23 @@ void AVLTree<T>::clearTree(std::shared_ptr<AVLNode<T>> node) {
         min_node = nullptr;
     }
     // im a leaf
-    if(node->getFather() != NULL) {
+    if(node->getFather() != nullptr) {
         if(isLeftSon(node)) {
-            node->getFather()->setLeftSon(NULL);
+            node->getFather()->setLeftSon(nullptr);
         }
         else {
-            node->getFather()->setRightSon(NULL);
+            node->getFather()->setRightSon(nullptr);
         }
     }
-    node->setFather(NULL);
+    node->setFather(nullptr);
 }
 
 template<typename T>
 bool AVLTree<T>::isLeaf(std::shared_ptr<AVLNode<T>> node) const {
-    if(node == NULL) {
+    if(node == nullptr) {
         return false;
     }
-    return node->getLeftSon() == NULL and node->getRightSon() == NULL;
+    return node->getLeftSon() == nullptr and node->getRightSon() == nullptr;
 }
 
 template<typename T>
@@ -299,8 +323,8 @@ bool AVLTree<T>::isRoot(std::shared_ptr<AVLNode<T>> node) const {
 
 template<typename T>
 AVLTree<T>::AVLTree() :
-        root(NULL),
-        min_node(NULL) {}
+        root(nullptr),
+        min_node(nullptr) {}
 
 template<typename T>
 AVLTree<T>::~AVLTree() {
@@ -332,13 +356,13 @@ template<typename T>
 void AVLTree<T>::insert(int key, std::shared_ptr<T> data) {
 
     // node with same key already in the tree
-    if(root != nullptr and find(key,root) != NULL) {
+    if(root != nullptr and find(key,root) != nullptr) {
         throw NodeAlreadyExists();
     }
     // T will be copied to AVLNode
     std::shared_ptr<AVLNode<T>> new_node = std::shared_ptr<AVLNode<T>>(new AVLNode<T>(key,data));
     // empty tree
-    if(root == NULL) {
+    if(root == nullptr) {
         root = new_node;
         min_node = new_node;
         return;
@@ -357,7 +381,7 @@ void AVLTree<T>::insert(std::shared_ptr<AVLNode<T>> new_node, std::shared_ptr<AV
 
     // new_node should be placed in the left subtree
     if(new_node->getKey() < current_root->getKey()) {
-        if(current_root->getLeftSon() != NULL) {
+        if(current_root->getLeftSon() != nullptr) {
             // keep searching for a place in left subtree
             insert(new_node, current_root->getLeftSon());
         }
@@ -370,7 +394,7 @@ void AVLTree<T>::insert(std::shared_ptr<AVLNode<T>> new_node, std::shared_ptr<AV
 
         // new_node should be placed in the right subtree
     else {
-        if(current_root->getRightSon() != NULL) {
+        if(current_root->getRightSon() != nullptr) {
             // keep searching for a place in right subtree
             insert(new_node, current_root->getRightSon());
         }
@@ -400,12 +424,14 @@ std::shared_ptr<AVLNode<T>> AVLTree<T>::balanceTree(std::shared_ptr<AVLNode<T>> 
         if(current_root != root) {
             // current root is left son of father
             if(current_root == (current_root->getFather())->getLeftSon()) {
-                (current_root->getFather())->setLeftSon(LL(current_root));
+                std::shared_ptr<AVLNode<T>> temp = current_root->getFather();
+                temp->setLeftSon(LL(current_root));
             }
 
                 // current root is right son of father
             else {
-                (current_root->getFather())->setRightSon(LL(current_root));
+                std::shared_ptr<AVLNode<T>> temp = current_root->getFather();
+                temp->setRightSon(LL(current_root));
             }
         }
             // current root is the whole tree root
@@ -422,11 +448,13 @@ std::shared_ptr<AVLNode<T>> AVLTree<T>::balanceTree(std::shared_ptr<AVLNode<T>> 
 
             // current root is right son of father
             if(current_root == (current_root->getFather())->getRightSon()) {
-                (current_root->getFather())->setRightSon(RR(current_root));
+                std::shared_ptr<AVLNode<T>> temp = current_root->getFather();
+                temp->setRightSon(RR(current_root));
             }
                 // current root is left son of father
             else {
-                (current_root->getFather())->setLeftSon(RR(current_root));
+                std::shared_ptr<AVLNode<T>> temp = current_root->getFather();
+                temp->setLeftSon(RR(current_root));
             }
         }
 
@@ -442,7 +470,7 @@ std::shared_ptr<AVLNode<T>> AVLTree<T>::balanceTree(std::shared_ptr<AVLNode<T>> 
 
 template<typename T>
 void AVLTree<T>::inOrder(std::shared_ptr<AVLNode<T>> root) {
-    if(root == NULL) {
+    if(root == nullptr) {
         return;
     }
     inOrder(root->getLeftSon());
@@ -458,13 +486,15 @@ void AVLTree<T>::printTree() {
     std::cout << std::endl;
 }
 
+
+
 template<typename T>
 void AVLTree<T>::remove(int key) {
 
     std::shared_ptr<AVLNode<T>> v = find(key,root);
 
     // node doesnt exist in the tree
-    if(v == NULL) {
+    if(v == nullptr) {
         throw NodeDoesntExist();
     }
 
@@ -473,26 +503,26 @@ void AVLTree<T>::remove(int key) {
 
 template<typename T>
 void AVLTree<T>::removeNode(std::shared_ptr<AVLNode<T>> v) {
-    std::shared_ptr<AVLNode<T>> return_value;
     if(isLeaf(v)) {
         // v != root
-        if(v->getFather() != NULL) {
+        if(v->getFather() != nullptr) {
             if(isLeftSon(v)) {
-                v->getFather()->setLeftSon(NULL);
+                v->getFather()->setLeftSon(nullptr);
             }
             else {
-                v->getFather()->setRightSon(NULL);
+                v->getFather()->setRightSon(nullptr);
             }
             std::shared_ptr<AVLNode<T>> A = v->getFather();
             while(A) {
                 balanceTree(A);
+                updateHeight(A);
                 A = A->getFather();
             }
 
         }
             // v == root
         else {
-            root = NULL;
+            root = nullptr;
         }
         if(v == min_node) {
             min_node = v->getFather();
@@ -520,6 +550,7 @@ void AVLTree<T>::removeNode(std::shared_ptr<AVLNode<T>> v) {
         std::shared_ptr<AVLNode<T>> A = v->getFather();
         while(A) {
             balanceTree(A);
+            updateHeight(A);
             A = A->getFather();
         }
     }

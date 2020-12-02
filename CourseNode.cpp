@@ -1,7 +1,3 @@
-//
-// Created by avira on 01/12/2020.
-//
-
 #include "CourseNode.h"
 
 CourseNode::CourseNode(int num_classes) :

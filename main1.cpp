@@ -256,8 +256,10 @@ static errorType OnGetMostViewedClasses(void* DS, const char* const command) {
     int *courses, *classes;
 
 	ValidateRead(sscanf(command, "%d", &numOfClasses), 1, "%s failed.\n", commandStr[GETMOSTVIEWEDCLASSES_CMD]);
-	courses = (int *)malloc(numOfClasses * sizeof(int));
-	classes = (int *)malloc(numOfClasses * sizeof(int));
+	if (numOfClasses > 0) {
+		courses = (int *)malloc(numOfClasses * sizeof(int));
+		classes = (int *)malloc(numOfClasses * sizeof(int));
+	}
 
 	StatusType res;
 	if (courses != NULL && classes != NULL) {
