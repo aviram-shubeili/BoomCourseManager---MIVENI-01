@@ -253,7 +253,7 @@ static errorType OnTimeViewed(void* DS, const char* const command) {
 
 static errorType OnGetMostViewedClasses(void* DS, const char* const command) {
     int numOfClasses;
-    int *courses, *classes;
+    int *courses , *classes ;
 
     ValidateRead(sscanf(command, "%d", &numOfClasses), 1, "%s failed.\n", commandStr[GETMOSTVIEWEDCLASSES_CMD]);
     if (numOfClasses > 0) {
@@ -271,8 +271,10 @@ static errorType OnGetMostViewedClasses(void* DS, const char* const command) {
 
     if (res != SUCCESS) {
         printf("%s: %s\n", commandStr[GETMOSTVIEWEDCLASSES_CMD], ReturnValToStr(res));
-        if (courses != NULL) free(courses);
-        if (classes != NULL) free(classes);
+        if(numOfClasses > 0) {
+            if (courses != NULL) free(courses);
+            if (classes != NULL) free(classes);
+        }
         return error_free;
     }
 
