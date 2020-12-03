@@ -29,6 +29,9 @@ private:
     void getMinTree(std::shared_ptr<AVLNode<AVLTree<int*>>> min,int& numOfClasses, int* courses, int* classes, int& counter);
     void getMinLectures(std::shared_ptr<AVLNode<int*>> min,int& numOfClasses, int* courses, int* classes, int curr_course, int& counter);
 
+    void inOrderMostNode(std::shared_ptr<AVLNode<int*>> root,int& numOfClasses, int* courses, int* classes, int curr_course, int& counter);
+    void inOrderMostTree(std::shared_ptr<AVLNode<AVLTree<int*>>> root,int& numOfClasses, int* courses, int* classes, int& counter);
+
 
 public:
     /**

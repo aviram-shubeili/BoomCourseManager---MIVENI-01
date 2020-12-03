@@ -531,6 +531,16 @@ void AVLTree<T>::removeNode(std::shared_ptr<AVLNode<T>> v) {
     }
     else if(getNumSons(v) == 1) {
         std::shared_ptr<AVLNode<T>> son = (v->getLeftSon()) ? v->getLeftSon() : v->getRightSon();
+        //    v == min_node --> son is v->rightSon
+        if(v == min_node) {
+            // getting the minimal bigger than v
+            std::shared_ptr<AVLNode<T>> new_min = son;
+            while(new_min->getLeftSon()) {
+                new_min = new_min->getLeftSon();
+            }
+            // setting new minimum.
+            min_node = new_min;
+        }
         if(v == root) {
             root = son;
         }
