@@ -166,7 +166,10 @@ void List::getMostViewd(int numOfClasses, int* courses, int* classes)
     //assumes that numOfClasses is indeed less the total classes
     while(numOfClasses > 0)
     {
-        getMinTree(curr_max->getAvl()->getRoot(), numOfClasses, courses, classes, counter);
+        getMinTree(curr_max->getAvl()->getMin(), numOfClasses, courses, classes, counter);
+        // TODO: print for debugging
+   //     curr_max->getAvl()->printTree();
+     //   std:: cout << "min of tree is: "<<curr_max->getAvl()->getMin()->getKey() << std::endl;
         curr_max = curr_max->getPrev();
     }
 
@@ -182,7 +185,9 @@ void List::getMinTree(std::shared_ptr<AVLNode<AVLTree<int*>>> min,int& numOfClas
 
     min->setVisit(true);
     getMinLectures(min->getData()->getMin(), numOfClasses, courses, classes, min->getKey(), counter);
-
+    // TODO: print for debugging
+   // min->getData()->printTree();
+    // std:: cout << "min of lectures is: "<<min->getData()->getMin()->getKey() << std::endl;
     std::shared_ptr<AVLNode<AVLTree<int*>>> father = min->getFather();
     std::shared_ptr<AVLNode<AVLTree<int*>>> left = min->getLeftSon();
     std::shared_ptr<AVLNode<AVLTree<int*>>> right = min->getRightSon();
