@@ -102,9 +102,6 @@ public:
      AVLTree<T>();
 
 
-    // TODO: do i need those???
-    //AVLTree<T>(const AVLTree<T>& other);
-//    AVLTree<T>& operator=(const AVLTree<T>& other);
 
     /**
     * Description:
@@ -367,7 +364,7 @@ void AVLTree<T>::insert(int key, std::shared_ptr<T> data) {
         min_node = new_node;
         return;
     }
-    // todo: preserve min node!
+    // update min_node ptr.
     if(min_node->getKey() > new_node->getKey()) {
         min_node = new_node;
     }
@@ -574,81 +571,7 @@ void AVLTree<T>::removeNode(std::shared_ptr<AVLNode<T>> v) {
         removeNode(w);
     }
 }
-// TODO: delete this before submitting:
-// *******************************************************************************************************************
-// *******************************************************************************************************************
-// ******************************************* Print Pretty Trees! ***************************************************
-// ******************************************* Print Pretty Trees! ***************************************************
-// ******************************************* Print Pretty Trees! ***************************************************
-// *******************************************************************************************************************
-// *******************************************************************************************************************
-#ifndef BOOM_TRUNK_H
-#define BOOM_TRUNK_H
 
-
-struct Trunk
-{
-    Trunk *prev;
-    std::string str;
-
-    Trunk(Trunk *prev, std::string str)
-    {
-        this->prev = prev;
-        this->str = str;
-    }
-};
-
-/*
-// Helper function to print branches of the binary tree
-
-// Recursive function to print binary tree
-// It uses inorder traversal
-void showTrunks(Trunk *p);
-template<typename T>
-void printTree(std::shared_ptr<AVLNode<T>> root, Trunk *prev, bool isLeft)
-{
-    if (root == nullptr)
-        return;
-
-    std::string prev_str = "    ";
-    Trunk *trunk = new Trunk(prev, prev_str);
-
-    printTree(root->getRightSon(), trunk, true);
-
-    if (!prev)
-        trunk->str = "---";
-    else if (isLeft)
-    {
-        trunk->str = ".---";
-        prev_str = "   |";
-    }
-    else
-    {
-        trunk->str = "`---";
-        prev->str = prev_str;
-    }
-
-    showTrunks(trunk);
-    std::cout << root->getKey() << std::endl;
-
-    if (prev)
-        prev->str = prev_str;
-    trunk->str = "   |";
-
-    printTree(root->getLeftSon(), trunk, false);
-}
-void showTrunks(Trunk *p)
-{
-    if (p == nullptr)
-        return;
-
-    showTrunks(p->prev);
-
-    std::cout << p->str;
-}
-
-*/
-#endif
 
 
 #endif //BOOM_AVL_H

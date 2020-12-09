@@ -14,9 +14,13 @@
  * return true if key <= 0, false otherwise
  * @param key
  * @return
- // TODO second invalid for class id
  */
 bool isInvalidCourseID(int key);
+/**
+ * return true if key < 0, false otherwise
+ * @param key
+ * @return
+ */
 bool isInvalidClassID(int key);
 
 

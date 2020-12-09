@@ -42,7 +42,7 @@ public:
      *      Copy constructor.
      * Exceptions:
      *      std::bad_alloc() - allocation problem (thrown from T copy ctor)
-     *      // todo fix?
+     *
      */
     AVLNode<T>(const AVLNode<T>& other);
 
@@ -50,7 +50,7 @@ public:
      * Description:
      *       Assignment Operator - doesnt change place in tree
      * T Assumptions:
-     *      Assignment Operator - todo: make sure it doesnt overwrite before allocation!
+     *      Assignment Operator
      *
      * Exceptions:
      *      std::bad_alloc() - allocation problem (thrown from T Assignment operator)
@@ -80,27 +80,14 @@ public:
     /**
      * Description:
      *     return height of node (assume sons of node is height correct).
-     * T Assumptions:
-     *      none
-     * Exceptions:
-     *      none
      */
     int getHeight() { return height; };
 
     void setHeight(int new_height);
 
-    // todo: should this return T& ? T?  or T*? or maybe shared_ptr??
+
     std::shared_ptr<T> getData();
 
-    /**
-     * Description:
-     *       Data setter
-     * T Assumptions:
-     *      Assignment Operator - todo: make sure it doesnt overwrite before allocation!
-     *
-     * Exceptions:
-     *      std::bad_alloc() - allocation problem (thrown from T Assignment operator)
-     */
     void setData(std::shared_ptr<T> new_data);
 
     /**
@@ -110,6 +97,10 @@ public:
     bool operator<( std::shared_ptr<AVLNode<T>> other);
     bool operator==( std::shared_ptr<AVLNode<T>> other);
 
+    /**
+     * Helper boolean for special inorder
+     * @param b
+     */
     void setVisit(bool b) {
     visited = b;
 }    
@@ -142,7 +133,6 @@ AVLNode<T> &AVLNode<T>::operator=(const AVLNode<T> &other) {
     if(this == &other) {
         return *this;
     }
-    // todo: in case of allocation problem expect T to throw allocation error and do not touch this->data.
     data = other.data;
     key = other.key;
    // height = other.height;

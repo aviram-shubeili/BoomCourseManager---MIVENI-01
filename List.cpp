@@ -162,9 +162,8 @@ void List::getMostViewd(int numOfClasses, int* courses, int* classes)
 {
     int counter = 0;
     std::shared_ptr<Node> curr_max = max;//points to the current views node
-
     //assumes that numOfClasses is indeed less the total classes
-    while(numOfClasses > 0)
+    while(numOfClasses > counter)
     {
         getMinTree(curr_max->getAvl()->getMin(), numOfClasses, courses, classes, counter);
 
@@ -176,22 +175,22 @@ void List::getMostViewd(int numOfClasses, int* courses, int* classes)
 //asume SetVisit(bool) will flag visited 
 void List::getMinTree(std::shared_ptr<AVLNode<AVLTree<int*>>> min,int& numOfClasses, int* courses, int* classes, int& counter)
 {
-    if(min == NULL || numOfClasses == 0)
+    if(min == NULL || numOfClasses == counter)
     {
         return;
     }
-
     getMinLectures(min->getData()->getMin(), numOfClasses, courses, classes, min->getKey(), counter);
 
     std::shared_ptr<AVLNode<AVLTree<int*>>> father = min->getFather();
     std::shared_ptr<AVLNode<AVLTree<int*>>> right = min->getRightSon();
 
+
     //never visited right
-    if(right != NULL)
+    if(right != NULL && numOfClasses > counter)
     {
         inOrderMostTree(right, numOfClasses, courses, classes,counter);
     }
-    if(father != NULL)
+    if(father != NULL && numOfClasses > counter)
     {
         getMinTree(father, numOfClasses, courses, classes,counter);
     }
@@ -200,7 +199,7 @@ void List::getMinTree(std::shared_ptr<AVLNode<AVLTree<int*>>> min,int& numOfClas
 
 void List::inOrderMostTree(std::shared_ptr<AVLNode<AVLTree<int*>>> root,int& numOfClasses, int* courses, int* classes, int& counter)
 {
-    if(root == NULL || numOfClasses == 0)
+    if(root == NULL || numOfClasses == counter)
     {
         return;
     }
@@ -208,14 +207,14 @@ void List::inOrderMostTree(std::shared_ptr<AVLNode<AVLTree<int*>>> root,int& num
     std::shared_ptr<AVLNode<AVLTree<int*>>> right = root->getRightSon();
     std::shared_ptr<AVLNode<AVLTree<int*>>> left = root->getLeftSon();
 
-    if(left != NULL)
+    if(left != NULL&& numOfClasses > counter)
     {
         inOrderMostTree(left, numOfClasses, courses, classes, counter);
     }
 
     getMinLectures(root->getData()->getMin(), numOfClasses, courses, classes, root->getKey(), counter);
 
-    if(right != NULL)
+    if(right != NULL&& numOfClasses > counter)
     {
         inOrderMostTree(right, numOfClasses, courses, classes, counter);
     }
@@ -224,7 +223,7 @@ void List::inOrderMostTree(std::shared_ptr<AVLNode<AVLTree<int*>>> root,int& num
 //asume SetVisit(bool) will flag visited
 void List::getMinLectures(std::shared_ptr<AVLNode<int*>> min,int& numOfClasses, int* courses, int* classes, int curr_course, int& counter)
 {
-    if(min == NULL || numOfClasses == 0)
+    if(min == NULL || numOfClasses == counter)
     {
         return;
     }
@@ -234,17 +233,16 @@ void List::getMinLectures(std::shared_ptr<AVLNode<int*>> min,int& numOfClasses, 
     std::shared_ptr<AVLNode<int*>> right = min->getRightSon();
 
 
-    numOfClasses--;
     *(courses + counter) = curr_course;
     *(classes + counter) = min -> getKey();
     counter++;
 
     //never visited right
-    if(right != NULL)
+    if(right != NULL&& numOfClasses > counter)
     {
         inOrderMostNode(right, numOfClasses, courses, classes, curr_course, counter);
     }
-    if(father != NULL)
+    if(father != NULL&& numOfClasses > counter)
     {
         getMinLectures(father, numOfClasses, courses, classes,curr_course,counter);
     }
@@ -252,25 +250,23 @@ void List::getMinLectures(std::shared_ptr<AVLNode<int*>> min,int& numOfClasses, 
 
 void List::inOrderMostNode(std::shared_ptr<AVLNode<int*>> root,int& numOfClasses, int* courses, int* classes, int curr_course, int& counter)
 {
-    if(root == NULL || numOfClasses == 0)
+    if(root == NULL || numOfClasses == counter)
     {
         return;
     }
-
     std::shared_ptr<AVLNode<int*>> left = root->getLeftSon();
     std::shared_ptr<AVLNode<int*>> right = root->getRightSon();
 
-    if(left != NULL)
+    if(left != NULL&& numOfClasses > counter)
     {
         inOrderMostNode(left, numOfClasses, courses, classes, curr_course, counter);
     }
-
-    numOfClasses--;
-    *(courses + counter) = curr_course;
-    *(classes + counter) = root -> getKey();
-    counter++;
-
-    if(right != NULL)
+    if(numOfClasses > counter) {
+        *(courses + counter) = curr_course;
+        *(classes + counter) = root->getKey();
+        counter++;
+    }
+    if(right != NULL&& numOfClasses > counter)
     {
         inOrderMostNode(right, numOfClasses, courses, classes, curr_course, counter);
     }

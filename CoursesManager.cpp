@@ -45,14 +45,15 @@ StatusType CoursesManager::removeCourse(int course_id) {
     if(course == nullptr) {
         return FAILURE;
     }
-    // remove from course tree
-    course_tree->remove(course_id);
     // remove from views list
+    std::shared_ptr<Node>* course_lecture_ptrs = course->getData()->lecture_ptrs;
     int num_classes = course->getData()->num_classes;
     for(int i = 0 ; i< num_classes ; i++) {
-        views_list->removeLectureFromNode(course->getData()->lecture_ptrs[i], i,course_id);
-        course->getData()->lecture_ptrs[i] = nullptr;
+        views_list->removeLectureFromNode(course_lecture_ptrs[i], i,course_id);
+        course_lecture_ptrs[i] = nullptr;
     }
+    // remove from course tree
+    course_tree->remove(course_id);
     total_num_classes -= num_classes;
     return SUCCESS;
 
